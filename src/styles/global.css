@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --orange: #f5820b;
+    --orange-2: #ff9f2f;
+
+    /* New dark blue theme */
+    --ink: #063d17;
+    --ink-2: #0ecc54;
+    --ink-3: #0b9940;
+
+
+    --muted: #7f8c9b;
+    --line: #dce3e9;
+
+    --white: #ffffff;
+    --text: #063d17;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+::selection {
+    background: var(--orange);
+    color: #111;
+}
+
+.home-page {
+    overflow: hidden;
+}
+
+.router-link-active {
+    text-decoration: none;
+}
+
+a,
+button {
+    outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *:before,
+    *:after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
