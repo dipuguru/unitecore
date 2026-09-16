@@ -1,9 +1,10 @@
+```vue
 <template>
     <div class="unitecore-chatbot">
 
         <!-- =====================================================
-         CHAT BUTTON
-    ====================================================== -->
+             CHAT BUTTON
+        ====================================================== -->
 
         <button v-if="!isOpen" class="chatbot-button" @click="openChat" aria-label="Open UniteCore AI">
             <span class="chatbot-icon">✦</span>
@@ -15,8 +16,8 @@
 
 
         <!-- =====================================================
-         CHAT WINDOW
-    ====================================================== -->
+             CHAT WINDOW
+        ====================================================== -->
 
         <div v-if="isOpen" class="chatbot-window">
 
@@ -43,7 +44,7 @@
 
                 </div>
 
-                <button class="close-button" @click="closeChat">
+                <button class="close-button" @click="closeChat" aria-label="Close chat">
                     ×
                 </button>
 
@@ -51,8 +52,8 @@
 
 
             <!-- =================================================
-           BODY
-      ================================================== -->
+                 BODY
+            ================================================== -->
 
             <div ref="messagesContainer" class="chatbot-messages">
 
@@ -92,7 +93,7 @@
 
                 <!-- SUGGESTIONS -->
 
-                <div v-if="messages.length === 0" class="suggestions">
+                <div v-if="messages.length === 0 && !showLeadForm && !leadSubmitted" class="suggestions">
 
                     <button v-for="suggestion in suggestions" :key="suggestion" @click="sendSuggestion(suggestion)">
                         {{ suggestion }}
@@ -156,8 +157,8 @@
 
 
                 <!-- =================================================
-             LEAD FORM
-        ================================================== -->
+                     LEAD FORM
+                ================================================== -->
 
                 <div v-if="showLeadForm" class="lead-form-card">
 
@@ -190,7 +191,8 @@
                                 Name *
                             </label>
 
-                            <input v-model="lead.name" type="text" placeholder="Your name" required />
+                            <input v-model.trim="lead.name" type="text" placeholder="Your name" autocomplete="name"
+                                required />
 
                         </div>
 
@@ -201,7 +203,8 @@
                                 Company
                             </label>
 
-                            <input v-model="lead.company" type="text" placeholder="Company name" />
+                            <input v-model.trim="lead.company" type="text" placeholder="Company name"
+                                autocomplete="organization" />
 
                         </div>
 
@@ -212,7 +215,8 @@
                                 Email *
                             </label>
 
-                            <input v-model="lead.email" type="email" placeholder="you@company.com" required />
+                            <input v-model.trim="lead.email" type="email" placeholder="you@company.com"
+                                autocomplete="email" required />
 
                         </div>
 
@@ -223,7 +227,8 @@
                                 Phone *
                             </label>
 
-                            <input v-model="lead.phone" type="tel" placeholder="+91 XXXXX XXXXX" required />
+                            <input v-model.trim="lead.phone" type="tel" placeholder="+91 XXXXX XXXXX" autocomplete="tel"
+                                required />
 
                         </div>
 
@@ -234,7 +239,7 @@
                                 Requirement *
                             </label>
 
-                            <textarea v-model="lead.requirement" rows="4"
+                            <textarea v-model.trim="lead.requirement" rows="4"
                                 placeholder="Tell us what you need help with..." required></textarea>
 
                         </div>
@@ -253,7 +258,7 @@
                         </button>
 
 
-                        <button type="button" class="cancel-lead" @click="closeLeadForm">
+                        <button type="button" class="cancel-lead" @click="closeLeadForm" :disabled="isSubmitting">
                             Back to chat
                         </button>
 
@@ -263,8 +268,8 @@
 
 
                 <!-- =================================================
-             LEAD SUCCESS
-        ================================================== -->
+                     LEAD SUCCESS
+                ================================================== -->
 
                 <div v-if="leadSubmitted" class="lead-success">
 
@@ -291,8 +296,8 @@
 
 
             <!-- =================================================
-           INPUT
-      ================================================== -->
+                 INPUT
+            ================================================== -->
 
             <div v-if="!showLeadForm && !leadSubmitted" class="chatbot-input-area">
 
@@ -354,6 +359,55 @@ export default {
     },
 
 
+    computed: {
+
+        /*
+         * API URL
+         *
+         * Local development:
+         * http://localhost:3001
+         *
+         * Production:
+         * Set VUE_APP_API_URL in .env.production
+         */
+        apiBaseUrl() {
+
+            const configuredUrl =
+                process.env.VUE_APP_API_URL;
+
+            if (configuredUrl) {
+
+                return configuredUrl.replace(/\/$/, "");
+
+            }
+
+            /*
+             * When running locally without .env,
+             * automatically use the Express server.
+             */
+            if (
+                window.location.hostname === "localhost" ||
+                window.location.hostname === "127.0.0.1"
+            ) {
+
+                return "http://localhost:3001";
+
+            }
+
+            /*
+             * IMPORTANT:
+             * GitHub Pages cannot host the Express API.
+             *
+             * If this message appears in production,
+             * VUE_APP_API_URL has not been configured.
+             */
+            return "";
+
+        }
+
+    },
+
+
     methods: {
 
         /* =====================================================
@@ -364,8 +418,12 @@ export default {
 
             this.isOpen = true;
 
+            this.errorMessage = "";
+
             this.$nextTick(() => {
+
                 this.scrollToBottom();
+
             });
 
         },
@@ -374,6 +432,49 @@ export default {
         closeChat() {
 
             this.isOpen = false;
+
+        },
+
+
+        /* =====================================================
+           API ERROR
+        ====================================================== */
+
+        getApiErrorMessage(error) {
+
+            console.error(
+                "UniteCore API Error:",
+                error
+            );
+
+            if (!this.apiBaseUrl) {
+
+                return (
+                    "UniteCore AI is not connected yet. " +
+                    "Please configure the UniteCore API server."
+                );
+
+            }
+
+            if (
+                error &&
+                error.message &&
+                error.message.toLowerCase().includes("failed to fetch")
+            ) {
+
+                return (
+                    "Unable to connect to the UniteCore server. " +
+                    "Please check that the API server is running."
+                );
+
+            }
+
+            return (
+                error &&
+                    error.message
+                    ? error.message
+                    : "Unable to connect to UniteCore AI. Please try again."
+            );
 
         },
 
@@ -397,17 +498,26 @@ export default {
 
         async sendMessage() {
 
-            const message = this.userInput.trim();
+            const message =
+                this.userInput.trim();
 
-            if (!message || this.isTyping) {
+            if (
+                !message ||
+                this.isTyping
+            ) {
+
                 return;
+
             }
 
             this.errorMessage = "";
 
             this.messages.push({
+
                 role: "user",
+
                 content: message
+
             });
 
             this.userInput = "";
@@ -421,32 +531,67 @@ export default {
 
             try {
 
-                const response = await fetch("/api/chat", {
+                if (!this.apiBaseUrl) {
 
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify({
-
-                        message,
-
-                        conversation: this.messages
-
-                    })
-
-                });
-
-
-                const data = await response.json();
-
-
-                if (!response.ok || !data.success) {
                     throw new Error(
-                        data.error || "Unable to contact UniteCore AI."
+                        "API server URL is not configured."
                     );
+
+                }
+
+
+                const response = await fetch(
+                    `${this.apiBaseUrl}/api/chat`,
+                    {
+
+                        method: "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json"
+
+                        },
+
+                        body: JSON.stringify({
+
+                            message,
+
+                            conversation:
+                                this.messages
+
+                        })
+
+                    }
+                );
+
+
+                let data;
+
+                try {
+
+                    data =
+                        await response.json();
+
+                } catch (jsonError) {
+
+                    throw new Error(
+                        "The UniteCore API returned an invalid response."
+                    );
+
+                }
+
+
+                if (
+                    !response.ok ||
+                    !data.success
+                ) {
+
+                    throw new Error(
+                        data.error ||
+                        "Unable to contact UniteCore AI."
+                    );
+
                 }
 
 
@@ -454,17 +599,17 @@ export default {
 
                     role: "assistant",
 
-                    content: data.reply
+                    content:
+                        data.reply ||
+                        "I'm sorry, I could not generate a response."
 
                 });
 
 
             } catch (error) {
 
-                console.error(error);
-
                 this.errorMessage =
-                    "Unable to connect to UniteCore AI. Please try again.";
+                    this.getApiErrorMessage(error);
 
             } finally {
 
@@ -487,10 +632,14 @@ export default {
 
             this.showLeadForm = true;
 
+            this.leadSubmitted = false;
+
             this.errorMessage = "";
 
             this.$nextTick(() => {
+
                 this.scrollToBottom();
+
             });
 
         },
@@ -498,7 +647,15 @@ export default {
 
         closeLeadForm() {
 
+            if (this.isSubmitting) {
+
+                return;
+
+            }
+
             this.showLeadForm = false;
+
+            this.errorMessage = "";
 
         },
 
@@ -510,8 +667,26 @@ export default {
         async submitLead() {
 
             if (this.isSubmitting) {
+
                 return;
+
             }
+
+
+            if (
+                !this.lead.name ||
+                !this.lead.email ||
+                !this.lead.phone ||
+                !this.lead.requirement
+            ) {
+
+                this.errorMessage =
+                    "Please fill in all required fields.";
+
+                return;
+
+            }
+
 
             this.errorMessage = "";
 
@@ -520,40 +695,78 @@ export default {
 
             try {
 
-                const response = await fetch("/api/leads", {
-
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify({
-
-                        name: this.lead.name,
-
-                        company: this.lead.company,
-
-                        email: this.lead.email,
-
-                        phone: this.lead.phone,
-
-                        requirement: this.lead.requirement,
-
-                        source: "UniteCore AI Chatbot"
-
-                    })
-
-                });
-
-
-                const data = await response.json();
-
-
-                if (!response.ok || !data.success) {
+                if (!this.apiBaseUrl) {
 
                     throw new Error(
-                        data.error || "Unable to submit request."
+                        "API server URL is not configured."
+                    );
+
+                }
+
+
+                const response = await fetch(
+                    `${this.apiBaseUrl}/api/leads`,
+                    {
+
+                        method: "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json"
+
+                        },
+
+                        body: JSON.stringify({
+
+                            name:
+                                this.lead.name,
+
+                            company:
+                                this.lead.company,
+
+                            email:
+                                this.lead.email,
+
+                            phone:
+                                this.lead.phone,
+
+                            requirement:
+                                this.lead.requirement,
+
+                            source:
+                                "UniteCore AI Chatbot"
+
+                        })
+
+                    }
+                );
+
+
+                let data;
+
+                try {
+
+                    data =
+                        await response.json();
+
+                } catch (jsonError) {
+
+                    throw new Error(
+                        "The UniteCore server returned an invalid response."
+                    );
+
+                }
+
+
+                if (
+                    !response.ok ||
+                    !data.success
+                ) {
+
+                    throw new Error(
+                        data.error ||
+                        "Unable to submit request."
                     );
 
                 }
@@ -563,13 +776,23 @@ export default {
 
                 this.leadSubmitted = true;
 
+                this.errorMessage = "";
+
+
+                await this.$nextTick();
+
+                this.scrollToBottom();
+
 
             } catch (error) {
 
-                console.error(error);
+                console.error(
+                    "Lead submission error:",
+                    error
+                );
 
                 this.errorMessage =
-                    "We could not submit your request. Please try again.";
+                    this.getApiErrorMessage(error);
 
             } finally {
 
@@ -590,17 +813,31 @@ export default {
 
             this.leadSubmitted = false;
 
+            this.showLeadForm = false;
+
             this.lead = {
 
                 name: "",
+
                 company: "",
+
                 email: "",
+
                 phone: "",
+
                 requirement: ""
 
             };
 
             this.errorMessage = "";
+
+            this.userInput = "";
+
+            this.$nextTick(() => {
+
+                this.scrollToBottom();
+
+            });
 
         },
 
@@ -615,7 +852,9 @@ export default {
                 this.$refs.messagesContainer;
 
             if (!container) {
+
                 return;
+
             }
 
             container.scrollTop =
@@ -635,11 +874,20 @@ export default {
 ========================================================= */
 
 .unitecore-chatbot {
+
     position: fixed;
+
     right: 24px;
+
     bottom: 24px;
+
     z-index: 99999;
-    font-family: Inter, Arial, sans-serif;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
 }
 
 
@@ -648,8 +896,11 @@ export default {
 ========================================================= */
 
 .chatbot-button {
+
     display: flex;
+
     align-items: center;
+
     gap: 10px;
 
     border: none;
@@ -674,13 +925,16 @@ export default {
     box-shadow:
         0 15px 40px rgba(0, 0, 0, 0.25);
 
-    transition: all 0.25s ease;
+    transition:
+        all 0.25s ease;
+
 }
 
 
 .chatbot-button:hover {
 
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
 
     box-shadow:
         0 20px 45px rgba(0, 0, 0, 0.3);
@@ -714,7 +968,8 @@ export default {
     box-shadow:
         0 25px 80px rgba(0, 0, 0, 0.3);
 
-    border: 1px solid #e5e5e1;
+    border:
+        1px solid #e5e5e1;
 
     display: flex;
 
@@ -913,6 +1168,8 @@ export default {
     box-shadow:
         0 2px 8px rgba(0, 0, 0, 0.04);
 
+    word-break: break-word;
+
 }
 
 
@@ -939,7 +1196,8 @@ export default {
 
     gap: 8px;
 
-    margin: 8px 0 20px 39px;
+    margin:
+        8px 0 20px 39px;
 
 }
 
@@ -950,7 +1208,8 @@ export default {
 
     background: #ffffff;
 
-    border: 1px solid #deded8;
+    border:
+        1px solid #deded8;
 
     border-radius: 10px;
 
@@ -962,7 +1221,8 @@ export default {
 
     color: #102e27;
 
-    transition: 0.2s ease;
+    transition:
+        0.2s ease;
 
 }
 
@@ -1018,7 +1278,8 @@ export default {
 
     border-radius: 50%;
 
-    animation: typing 1.2s infinite;
+    animation:
+        typing 1.2s infinite;
 
 }
 
@@ -1043,13 +1304,15 @@ export default {
     60%,
     100% {
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
 
     }
 
     30% {
 
-        transform: translateY(-5px);
+        transform:
+            translateY(-5px);
 
     }
 
@@ -1074,6 +1337,8 @@ export default {
 
     margin-top: 10px;
 
+    line-height: 1.5;
+
 }
 
 
@@ -1091,7 +1356,8 @@ export default {
 
     margin-top: 10px;
 
-    border: 1px solid #e5e5e1;
+    border:
+        1px solid #e5e5e1;
 
 }
 
@@ -1143,7 +1409,8 @@ export default {
 
 .lead-form-header p {
 
-    margin: 3px 0 0;
+    margin:
+        3px 0 0;
 
     font-size: 11px;
 
@@ -1192,11 +1459,13 @@ export default {
 
     box-sizing: border-box;
 
-    border: 1px solid #dcdcd6;
+    border:
+        1px solid #dcdcd6;
 
     border-radius: 8px;
 
-    padding: 9px 10px;
+    padding:
+        9px 10px;
 
     font-size: 12px;
 
@@ -1265,6 +1534,15 @@ export default {
 }
 
 
+.cancel-lead:disabled {
+
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+}
+
+
 /* =========================================================
    SUCCESS
 ========================================================= */
@@ -1313,7 +1591,8 @@ export default {
 
     color: #102e27;
 
-    margin: 14px 0 7px;
+    margin:
+        14px 0 7px;
 
 }
 
@@ -1337,7 +1616,8 @@ export default {
 
     color: #ffffff;
 
-    padding: 10px 18px;
+    padding:
+        10px 18px;
 
     border-radius: 8px;
 
@@ -1358,7 +1638,8 @@ export default {
 
     padding: 12px;
 
-    border-top: 1px solid #e5e5e1;
+    border-top:
+        1px solid #e5e5e1;
 
     background: #ffffff;
 
@@ -1369,11 +1650,13 @@ export default {
 
     flex: 1;
 
-    border: 1px solid #deded8;
+    border:
+        1px solid #deded8;
 
     border-radius: 10px;
 
-    padding: 10px 12px;
+    padding:
+        10px 12px;
 
     outline: none;
 
@@ -1445,7 +1728,9 @@ export default {
 
         width: 100%;
 
-        height: min(680px, calc(100vh - 30px));
+        height:
+            min(680px,
+                calc(100vh - 30px));
 
         border-radius: 18px;
 
@@ -1453,3 +1738,64 @@ export default {
 
 }
 </style>
+```
+
+### One more required change
+
+Because your site is now:
+
+```text
+https://dipuguru.github.io/unitecore/
+```
+
+you **cannot** make `/api/leads` work merely by changing this Vue file. The API must be hosted somewhere publicly.
+
+For your local development, create:
+
+```text
+.env.development
+```
+
+inside:
+
+```text
+C:\Users\DIPALI\Downloads\unitecore-redesigned-master
+```
+
+and put:
+
+```env
+VUE_APP_API_URL=http://localhost:3001
+```
+
+Then your existing Express server should provide:
+
+```text
+http://localhost:3001/api/chat
+http://localhost:3001/api/leads
+```
+
+For the **live GitHub Pages website**, you need:
+
+```text
+.env.production
+```
+
+with your deployed Express API address:
+
+```env
+VUE_APP_API_URL=https://YOUR-DEPLOYED-API-DOMAIN
+```
+
+Then rebuild:
+
+```bash
+npm run build
+npm run deploy
+```
+
+### Very important
+
+If you **do not yet have the Express backend deployed**, tell me **“deploy backend”** and I can take you through the
+next step using your existing `server` folder. That is the part that will actually make **Talk to an Expert** work on
+the live `dipuguru.github.io/unitecore` website.

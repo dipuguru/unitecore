@@ -14,7 +14,10 @@
 
         <section class="about-hero">
 
-            <div class="hero-image"></div>
+            <div class="hero-image" :style="{
+                backgroundImage: `url('${heroImage}')`
+            }"></div>
+
             <div class="hero-overlay"></div>
             <div class="hero-grid"></div>
             <div class="hero-glow"></div>
@@ -101,8 +104,8 @@
 
                         <div class="section-image-wrap">
 
-                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85"
-                                alt="Technology infrastructure and digital innovation" class="intro-image" />
+                            <img :src="about6Image" alt="UniteCore team and workplace" class="intro-image"
+                                @error="handleImageError" />
 
                             <div class="image-tag">
                                 UNITECORE GROUP
@@ -177,7 +180,9 @@
                 </div>
 
 
-                <!-- VISION -->
+                <!-- =================================================
+                     VISION
+                ================================================== -->
 
                 <article class="vmv-card vision-card">
 
@@ -187,8 +192,7 @@
 
                     <div class="vmv-image">
 
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
-                            alt="Digital technology network representing UniteCore vision" />
+                        <img :src="about7Image" alt="UniteCore vision and team" @error="handleImageError" />
 
                         <div class="image-overlay"></div>
 
@@ -212,8 +216,8 @@
                             </h3>
 
                             <p>
-                                To create a sustainable & innovative
-                                ecosystem that empowers businesses & lives
+                                To create a sustainable &amp; innovative
+                                ecosystem that empowers businesses &amp; lives
                                 across the universe.
                             </p>
 
@@ -224,7 +228,9 @@
                 </article>
 
 
-                <!-- MISSION -->
+                <!-- =================================================
+                     MISSION
+                ================================================== -->
 
                 <article class="vmv-card mission-card">
 
@@ -234,8 +240,7 @@
 
                     <div class="vmv-image">
 
-                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85"
-                            alt="Business collaboration representing UniteCore mission" />
+                        <img :src="life6Image" alt="UniteCore employee collaboration" @error="handleImageError" />
 
                         <div class="image-overlay"></div>
 
@@ -276,7 +281,9 @@
                 </article>
 
 
-                <!-- VALUES -->
+                <!-- =================================================
+                     VALUES
+                ================================================== -->
 
                 <article class="values-card">
 
@@ -304,8 +311,7 @@
 
                     <div class="values-image">
 
-                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=85"
-                            alt="Team collaboration and core values" />
+                        <img :src="life4Image" alt="UniteCore team and culture" @error="handleImageError" />
 
                     </div>
 
@@ -353,10 +359,13 @@
 
             <div class="journey-video-wrap">
 
-                <video class="journey-video" autoplay muted loop playsinline preload="metadata">
-                    <source src="/videos/journey_video.mp4" type="video/mp4" />
+                <video ref="journeyVideo" class="journey-video" autoplay muted loop playsinline preload="auto"
+                    @canplay="playJourneyVideo" @error="handleVideoError">
+
+                    <source :src="journeyVideo" type="video/mp4" />
 
                     Your browser does not support the video tag.
+
                 </video>
 
                 <div class="journey-overlay"></div>
@@ -431,7 +440,8 @@
                 ================================================== -->
 
                 <div class="team-slider-window" @mouseenter="pauseTeamSlider" @mouseleave="resumeTeamSlider"
-                    @touchstart="handleTouchStart" @touchend="handleTouchEnd">
+                    @focusin="pauseTeamSlider" @focusout="resumeTeamSlider" @touchstart="handleTouchStart"
+                    @touchend="handleTouchEnd">
 
                     <div class="team-slider-track" :style="teamTrackStyle">
 
@@ -540,8 +550,7 @@
 
                 <div class="clients-visual">
 
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1800&q=85"
-                        alt="Business professionals collaborating with technology" />
+                    <img :src="clientsImage" alt="UniteCore team activity" @error="handleImageError" />
 
                     <div class="clients-overlay"></div>
 
@@ -735,10 +744,30 @@ import VisionMission from "../components/VisionMission.vue";
 import CTASection from "../components/CTASection.vue";
 import FooterSection from "../components/FooterSection.vue";
 
+import heroImageFile from "../assets/2024-6.jpg";
+import about6ImageFile from "../assets/about6.jpeg";
+import about7ImageFile from "../assets/about7.jpeg";
+import life6ImageFile from "../assets/life6.jpeg";
+import life4ImageFile from "../assets/life4.png";
+import journeyVideoFile from "../assets/journey_video.mp4";
+import clientsImageFile from "../assets/2022(8).jpeg";
+
+import shrikantImage from "../assets/shrikant.jpeg";
+import dineshImage from "../assets/dinesh.jpeg";
+import girishImage from "../assets/girish.jpeg";
+import aartiImage from "../assets/aarati.jpeg";
+import bhaveshImage from "../assets/bhavesh.jpeg";
+import poojaImage from "../assets/pooja.jpeg";
+import mamataImage from "../assets/mamata.jpeg";
+import smitaImage from "../assets/smita.jpeg";
+import imranImage from "../assets/imran.jpeg";
+import snehaImage from "../assets/sneha.jpeg";
+
 
 export default {
 
     name: "AboutPage",
+
 
     components: {
         HeaderSection,
@@ -754,55 +783,123 @@ export default {
         return {
 
             /* =================================================
+               BASE URL
+            ================================================== */
+
+            baseUrl:
+                typeof process !== "undefined" &&
+                    process.env &&
+                    process.env.BASE_URL
+                    ? process.env.BASE_URL
+                    : "/",
+
+
+            /* =================================================
+               ABOUT PAGE IMAGES / VIDEO
+
+               IMPORTANT:
+               These are exposed through data() so that
+               Vue ESLint correctly recognizes their usage
+               inside the template.
+            ================================================== */
+
+            heroImage: heroImageFile,
+
+            about6Image: about6ImageFile,
+
+            about7Image: about7ImageFile,
+
+            life6Image: life6ImageFile,
+
+            life4Image: life4ImageFile,
+
+            journeyVideo: journeyVideoFile,
+
+            clientsImage: clientsImageFile,
+
+
+            /* =================================================
                TEAM DATA
             ================================================== */
 
             teamMembers: [
 
                 {
-                    name: "Smita",
-                    role: "Technology & Business",
-                    image: "/images/about/smita.png",
+                    name: "Mr. Shrikant Kadam",
+                    role: "Managing Director",
+                    image: shrikantImage,
                     number: "01"
                 },
 
                 {
-                    name: "Shrikant",
-                    role: "Technology & Solutions",
-                    image: "/images/about/shrikant.png",
+                    name: "Mr. Dinesh Bharne",
+                    role: "Chief Executive Officer",
+                    image: dineshImage,
                     number: "02"
                 },
 
                 {
-                    name: "Pooja",
-                    role: "Technology & Operations",
-                    image: "/images/about/pooja.jpg",
+                    name: "Mr. Girish Rane",
+                    role: "Head Of Operational Support",
+                    image: girishImage,
                     number: "03"
                 },
 
                 {
-                    name: "Mamata",
-                    role: "Business & Technology",
-                    image: "/images/about/mamata.jpg",
+                    name: "Ms. Aarti Sharma",
+                    role: "Inside Sales Head",
+                    image: aartiImage,
                     number: "04"
                 },
 
                 {
-                    name: "Girish",
-                    role: "Technology & Solutions",
-                    image: "/images/about/girish.jpg",
+                    name: "Mr. Bhavesh Rajdev",
+                    role: "Head Of Marketing",
+                    image: bhaveshImage,
                     number: "05"
                 },
 
                 {
-                    name: "Dinesh",
-                    role: "Technology & Operations",
-                    image: "/images/about/dinesh.jpg",
+                    name: "Mrs. Pooja Sanas",
+                    role: "Head of Account & Finance",
+                    image: poojaImage,
                     number: "06"
+                },
+
+                {
+                    name: "Mrs. Mamata Kurale",
+                    role: "Head of Purchase",
+                    image: mamataImage,
+                    number: "07"
+                },
+
+                {
+                    name: "Mrs. Smita Mandhare",
+                    role: "Human Resource Manager",
+                    image: smitaImage,
+                    number: "08"
+                },
+
+                {
+                    name: "Imran Khan",
+                    role: "Business Development Manager",
+                    image: imranImage,
+                    number: "09"
+                },
+
+                {
+                    name: "Sneha Varma",
+                    role: "General Manager - Business Development",
+                    image: snehaImage,
+                    number: "10"
                 }
 
             ],
 
+
+            /* =================================================
+               TEAM SLIDER
+            ================================================== */
 
             teamIndex: 0,
 
@@ -815,7 +912,9 @@ export default {
             teamWindowWidth:
                 typeof window !== "undefined"
                     ? window.innerWidth
-                    : 1200
+                    : 1200,
+
+            teamContainerWidth: 1180
 
         };
 
@@ -824,9 +923,9 @@ export default {
 
     computed: {
 
-        /* =====================================================
-           NUMBER OF VISIBLE CARDS
-        ====================================================== */
+        /* =================================================
+           VISIBLE TEAM MEMBERS
+        ================================================== */
 
         teamVisibleCount() {
 
@@ -835,17 +934,21 @@ export default {
             }
 
             if (this.teamWindowWidth <= 1050) {
-                return 2;
+                return 3;
             }
 
-            return 4;
+            if (this.teamWindowWidth < 1200) {
+                return 4;
+            }
+
+            return 5;
 
         },
 
 
-        /* =====================================================
-           MAXIMUM SLIDER INDEX
-        ====================================================== */
+        /* =================================================
+           MAX SLIDER INDEX
+        ================================================== */
 
         teamMaxIndex() {
 
@@ -858,9 +961,9 @@ export default {
         },
 
 
-        /* =====================================================
-           NUMBER OF DOTS
-        ====================================================== */
+        /* =================================================
+           NUMBER OF SLIDER PAGES
+        ================================================== */
 
         teamPageCount() {
 
@@ -869,41 +972,49 @@ export default {
         },
 
 
-        /* =====================================================
+        /* =================================================
            SLIDER TRACK STYLE
-
-           IMPORTANT:
-           We calculate percentage based on visible cards.
-           This avoids the old translateX calculation issue.
-        ====================================================== */
+        ================================================== */
 
         teamTrackStyle() {
 
-            const visible = this.teamVisibleCount;
+            const visible =
+                this.teamVisibleCount;
 
             const gap =
-                visible === 1
-                    ? 0
-                    : 18;
+                this.teamWindowWidth <= 700
+                    ? 15
+                    : this.teamWindowWidth <= 1050
+                        ? 18
+                        : 20;
+
+            const width =
+                this.teamContainerWidth ||
+                1180;
 
             const cardWidth =
-                `calc((100% - ${(visible - 1) * gap}px) / ${visible})`;
+                (
+                    width -
+                    gap * (visible - 1)
+                ) / visible;
 
             const move =
-                `calc(${this.teamIndex} * (${cardWidth} + ${gap}px) * -1)`;
+                this.teamIndex *
+                (
+                    cardWidth +
+                    gap
+                );
 
             return {
-
-                "--team-visible": visible,
 
                 "--team-gap":
                     `${gap}px`,
 
                 "--team-card-width":
-                    cardWidth,
+                    `${cardWidth}px`,
 
                 transform:
-                    `translate3d(${move}, 0, 0)`
+                    `translate3d(-${move}px, 0, 0)`
 
             };
 
@@ -912,17 +1023,38 @@ export default {
     },
 
 
+    /* =====================================================
+       MOUNTED
+    ====================================================== */
+
     mounted() {
+
+        this.teamWindowWidth =
+            window.innerWidth;
+
+
+        this.$nextTick(() => {
+
+            this.updateTeamSliderWidth();
+
+            this.playJourneyVideo();
+
+            this.startTeamSlider();
+
+        });
+
 
         window.addEventListener(
             "resize",
             this.handleResize
         );
 
-        this.startTeamSlider();
-
     },
 
+
+    /* =====================================================
+       BEFORE UNMOUNT
+    ====================================================== */
 
     beforeUnmount() {
 
@@ -939,6 +1071,37 @@ export default {
     methods: {
 
         /* =====================================================
+           UPDATE TEAM SLIDER WIDTH
+        ====================================================== */
+
+        updateTeamSliderWidth() {
+
+            const slider =
+                this.$el.querySelector(
+                    ".team-slider-window"
+                );
+
+
+            if (!slider) {
+                return;
+            }
+
+
+            const width =
+                slider.clientWidth;
+
+
+            if (width > 0) {
+
+                this.teamContainerWidth =
+                    width;
+
+            }
+
+        },
+
+
+        /* =====================================================
            RESIZE
         ====================================================== */
 
@@ -947,10 +1110,15 @@ export default {
             this.teamWindowWidth =
                 window.innerWidth;
 
-            if (
-                this.teamIndex >
-                this.teamMaxIndex
-            ) {
+
+            this.$nextTick(() => {
+
+                this.updateTeamSliderWidth();
+
+            });
+
+
+            if (this.teamIndex > this.teamMaxIndex) {
 
                 this.teamIndex =
                     this.teamMaxIndex;
@@ -961,22 +1129,26 @@ export default {
 
 
         /* =====================================================
-           NEXT
+           NEXT TEAM
         ====================================================== */
 
         nextTeam() {
 
             if (this.teamIndex < this.teamMaxIndex) {
+
                 this.teamIndex++;
+
             } else {
+
                 this.teamIndex = 0;
+
             }
 
         },
 
 
         /* =====================================================
-           PREVIOUS
+           PREVIOUS TEAM
         ====================================================== */
 
         previousTeam() {
@@ -992,19 +1164,6 @@ export default {
 
             }
 
-        },
-
-
-        /* =====================================================
-           GO TO SPECIFIC SLIDE
-        ====================================================== */
-
-        goToTeam(index) {
-
-            this.teamIndex = Math.min(
-                Math.max(index, 0),
-                this.teamMaxIndex
-            );
 
             this.restartTeamSlider();
 
@@ -1012,25 +1171,44 @@ export default {
 
 
         /* =====================================================
-           START AUTOPLAY
+           GO TO TEAM
+        ====================================================== */
+
+        goToTeam(index) {
+
+            this.teamIndex =
+                Math.min(
+                    Math.max(index, 0),
+                    this.teamMaxIndex
+                );
+
+
+            this.restartTeamSlider();
+
+        },
+
+
+        /* =====================================================
+           START TEAM AUTOPLAY
         ====================================================== */
 
         startTeamSlider() {
 
             this.stopTeamSlider();
 
+
             this.teamInterval =
                 setInterval(() => {
 
                     this.nextTeam();
 
-                }, 3000);
+                }, 3500);
 
         },
 
 
         /* =====================================================
-           STOP AUTOPLAY
+           STOP TEAM AUTOPLAY
         ====================================================== */
 
         stopTeamSlider() {
@@ -1041,7 +1219,8 @@ export default {
                     this.teamInterval
                 );
 
-                this.teamInterval = null;
+                this.teamInterval =
+                    null;
 
             }
 
@@ -1049,7 +1228,7 @@ export default {
 
 
         /* =====================================================
-           RESTART AUTOPLAY
+           RESTART TEAM AUTOPLAY
         ====================================================== */
 
         restartTeamSlider() {
@@ -1062,7 +1241,7 @@ export default {
 
 
         /* =====================================================
-           PAUSE ON HOVER
+           PAUSE TEAM SLIDER
         ====================================================== */
 
         pauseTeamSlider() {
@@ -1073,7 +1252,7 @@ export default {
 
 
         /* =====================================================
-           RESUME AFTER HOVER
+           RESUME TEAM SLIDER
         ====================================================== */
 
         resumeTeamSlider() {
@@ -1093,11 +1272,21 @@ export default {
                 !event.changedTouches ||
                 !event.changedTouches.length
             ) {
+
                 return;
+
             }
+
+
+            this.pauseTeamSlider();
+
 
             this.teamTouchStartX =
                 event.changedTouches[0].clientX;
+
+
+            this.teamTouchEndX =
+                this.teamTouchStartX;
 
         },
 
@@ -1112,25 +1301,38 @@ export default {
                 !event.changedTouches ||
                 !event.changedTouches.length
             ) {
+
+                this.restartTeamSlider();
+
                 return;
+
             }
+
 
             this.teamTouchEndX =
                 event.changedTouches[0].clientX;
+
 
             const distance =
                 this.teamTouchStartX -
                 this.teamTouchEndX;
 
+
             const minimumSwipe =
                 50;
+
 
             if (
                 Math.abs(distance) <
                 minimumSwipe
             ) {
+
+                this.restartTeamSlider();
+
                 return;
+
             }
+
 
             if (distance > 0) {
 
@@ -1142,28 +1344,97 @@ export default {
 
             }
 
+
             this.restartTeamSlider();
 
         },
 
 
         /* =====================================================
-           IMAGE ERROR FALLBACK
+           PLAY JOURNEY VIDEO
+        ====================================================== */
+
+        playJourneyVideo() {
+
+            const video =
+                this.$refs.journeyVideo;
+
+
+            if (!video) {
+                return;
+            }
+
+
+            const promise =
+                video.play();
+
+
+            if (
+                promise &&
+                typeof promise.catch === "function"
+            ) {
+
+                promise.catch(() => { });
+
+            }
+
+        },
+
+
+        /* =====================================================
+           IMAGE ERROR
         ====================================================== */
 
         handleImageError(event) {
 
+            console.error(
+                "UniteCore image failed to load:",
+                event.target.src
+            );
+
+
             event.target.style.display =
                 "none";
 
+
             const parent =
                 event.target.parentElement;
+
 
             if (parent) {
 
                 parent.classList.add(
                     "image-missing"
                 );
+
+            }
+
+        },
+
+
+        /* =====================================================
+           VIDEO ERROR
+        ====================================================== */
+
+        handleVideoError(event) {
+
+            console.error(
+                "UniteCore video failed to load:",
+                event.target.currentSrc ||
+                "journey_video.mp4"
+            );
+
+
+            const videoEl =
+                event.target.closest(
+                    ".journey-video"
+                );
+
+
+            if (videoEl) {
+
+                videoEl.style.display =
+                    "none";
 
             }
 
@@ -1182,6 +1453,7 @@ export default {
 ========================================================= */
 
 .about-page {
+
     --orange: #f5820b;
     --orange-light: #ff9f2f;
 
@@ -1197,6 +1469,7 @@ export default {
     --line: #e5e5e1;
 
     width: 100%;
+
     overflow: hidden;
 
     background: var(--cream);
@@ -1216,11 +1489,11 @@ export default {
 
 .about-container {
 
-    width: min(1180px,
+    width:
+        min(1180px,
             calc(100% - 48px));
 
     margin: 0 auto;
-
 }
 
 
@@ -1245,7 +1518,6 @@ export default {
     letter-spacing: 2px;
 
     text-transform: uppercase;
-
 }
 
 .eyebrow span {
@@ -1254,10 +1526,9 @@ export default {
 
     height: 2px;
 
-    background: var(--orange);
-
     display: block;
 
+    background: var(--orange);
 }
 
 
@@ -1278,7 +1549,6 @@ export default {
     overflow: hidden;
 
     background: var(--green-dark);
-
 }
 
 .hero-image {
@@ -1287,17 +1557,15 @@ export default {
 
     inset: 0;
 
-    background-image:
-        url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2200&q=90");
-
     background-size: cover;
 
     background-position: center;
 
-    opacity: .45;
+    background-repeat: no-repeat;
+
+    opacity: .55;
 
     transform: scale(1.02);
-
 }
 
 .hero-overlay {
@@ -1311,7 +1579,6 @@ export default {
             rgba(7, 28, 19, .98) 0%,
             rgba(7, 28, 19, .82) 40%,
             rgba(7, 28, 19, .25) 100%);
-
 }
 
 .hero-grid {
@@ -1330,7 +1597,6 @@ export default {
             transparent 1px);
 
     background-size: 70px 70px;
-
 }
 
 .hero-glow {
@@ -1353,7 +1619,6 @@ export default {
             transparent 70%);
 
     filter: blur(15px);
-
 }
 
 .hero-content {
@@ -1365,7 +1630,6 @@ export default {
     max-width: 850px;
 
     padding-top: 90px;
-
 }
 
 .hero-content h1 {
@@ -1379,14 +1643,11 @@ export default {
         sans-serif;
 
     font-size:
-        clamp(54px,
-            8vw,
-            105px);
+        clamp(54px, 8vw, 105px);
 
     line-height: .92;
 
     letter-spacing: -5px;
-
 }
 
 .hero-content h1 strong {
@@ -1394,7 +1655,6 @@ export default {
     display: block;
 
     color: var(--orange);
-
 }
 
 .hero-content p {
@@ -1403,13 +1663,11 @@ export default {
 
     margin: 30px 0;
 
-    color:
-        rgba(255, 255, 255, .72);
+    color: rgba(255, 255, 255, .72);
 
     font-size: 16px;
 
     line-height: 1.8;
-
 }
 
 .hero-line {
@@ -1421,7 +1679,6 @@ export default {
     margin: 30px 0;
 
     background: var(--orange);
-
 }
 
 .hero-mini {
@@ -1431,7 +1688,6 @@ export default {
     flex-wrap: wrap;
 
     gap: 35px;
-
 }
 
 .hero-mini div {
@@ -1441,7 +1697,6 @@ export default {
     flex-direction: column;
 
     gap: 5px;
-
 }
 
 .hero-mini strong {
@@ -1451,16 +1706,13 @@ export default {
     font-size: 13px;
 
     letter-spacing: 1px;
-
 }
 
 .hero-mini span {
 
-    color:
-        rgba(255, 255, 255, .45);
+    color: rgba(255, 255, 255, .45);
 
     font-size: 10px;
-
 }
 
 .hero-side-text {
@@ -1476,13 +1728,11 @@ export default {
     transform:
         translateY(-50%) rotate(90deg);
 
-    color:
-        rgba(255, 255, 255, .28);
+    color: rgba(255, 255, 255, .28);
 
     font-size: 9px;
 
     letter-spacing: 4px;
-
 }
 
 .hero-bottom {
@@ -1497,7 +1747,8 @@ export default {
 
     transform: translateX(-50%);
 
-    width: min(1180px,
+    width:
+        min(1180px,
             calc(100% - 48px));
 
     display: flex;
@@ -1506,13 +1757,11 @@ export default {
 
     gap: 15px;
 
-    color:
-        rgba(255, 255, 255, .45);
+    color: rgba(255, 255, 255, .45);
 
     font-size: 9px;
 
     letter-spacing: 2px;
-
 }
 
 .hero-bottom div {
@@ -1523,7 +1772,6 @@ export default {
 
     background:
         rgba(255, 255, 255, .25);
-
 }
 
 
@@ -1536,7 +1784,6 @@ export default {
     padding: 110px 0;
 
     background: var(--white);
-
 }
 
 .intro-grid {
@@ -1546,7 +1793,6 @@ export default {
     grid-template-columns: 160px 1fr;
 
     gap: 60px;
-
 }
 
 .intro-label {
@@ -1558,7 +1804,6 @@ export default {
     font-weight: 800;
 
     letter-spacing: 2px;
-
 }
 
 .intro-label span {
@@ -1574,7 +1819,6 @@ export default {
         sans-serif;
 
     color: var(--green);
-
 }
 
 .section-image-wrap {
@@ -1586,7 +1830,6 @@ export default {
     overflow: hidden;
 
     margin-bottom: 55px;
-
 }
 
 .intro-image {
@@ -1597,6 +1840,16 @@ export default {
 
     object-fit: cover;
 
+    object-position: center;
+
+    display: block;
+
+    transition: transform .6s ease;
+}
+
+.section-image-wrap:hover .intro-image {
+
+    transform: scale(1.04);
 }
 
 .image-tag {
@@ -1618,7 +1871,6 @@ export default {
     font-weight: 800;
 
     letter-spacing: 1.5px;
-
 }
 
 .intro-content h2 {
@@ -1630,16 +1882,13 @@ export default {
         sans-serif;
 
     font-size:
-        clamp(42px,
-            6vw,
-            75px);
+        clamp(42px, 6vw, 75px);
 
     line-height: .95;
 
     letter-spacing: -3px;
 
     color: var(--green);
-
 }
 
 .intro-content h2 em {
@@ -1647,7 +1896,6 @@ export default {
     color: var(--orange);
 
     font-style: normal;
-
 }
 
 .intro-content p {
@@ -1659,7 +1907,6 @@ export default {
     font-size: 14px;
 
     line-height: 1.9;
-
 }
 
 .text-link {
@@ -1679,7 +1926,6 @@ export default {
     font-weight: 800;
 
     text-decoration: none;
-
 }
 
 .text-link span {
@@ -1687,7 +1933,6 @@ export default {
     color: var(--orange);
 
     font-size: 20px;
-
 }
 
 
@@ -1700,7 +1945,6 @@ export default {
     padding: 100px 0;
 
     background: var(--cream);
-
 }
 
 .section-heading {
@@ -1708,7 +1952,6 @@ export default {
     max-width: 800px;
 
     margin-bottom: 60px;
-
 }
 
 .section-heading h2 {
@@ -1722,20 +1965,16 @@ export default {
         sans-serif;
 
     font-size:
-        clamp(40px,
-            6vw,
-            72px);
+        clamp(40px, 6vw, 72px);
 
     line-height: .95;
 
     letter-spacing: -3px;
-
 }
 
 .section-heading h2 strong {
 
     color: var(--orange);
-
 }
 
 .section-heading p {
@@ -1747,7 +1986,6 @@ export default {
     font-size: 14px;
 
     line-height: 1.8;
-
 }
 
 .vmv-card {
@@ -1756,8 +1994,7 @@ export default {
 
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     margin-bottom: 20px;
 
@@ -1766,7 +2003,6 @@ export default {
     background: var(--white);
 
     border: 1px solid var(--line);
-
 }
 
 .vmv-number {
@@ -1788,7 +2024,6 @@ export default {
     font-size: 15px;
 
     font-weight: 800;
-
 }
 
 .vmv-image {
@@ -1798,7 +2033,6 @@ export default {
     min-height: 370px;
 
     overflow: hidden;
-
 }
 
 .vmv-image img {
@@ -1809,6 +2043,16 @@ export default {
 
     object-fit: cover;
 
+    object-position: center;
+
+    display: block;
+
+    transition: transform .6s ease;
+}
+
+.vmv-card:hover .vmv-image img {
+
+    transform: scale(1.04);
 }
 
 .image-overlay {
@@ -1821,7 +2065,6 @@ export default {
         linear-gradient(180deg,
             rgba(7, 28, 19, .1),
             rgba(7, 28, 19, .55));
-
 }
 
 .vmv-content {
@@ -1833,7 +2076,6 @@ export default {
     gap: 30px;
 
     padding: 60px;
-
 }
 
 .vmv-icon {
@@ -1855,7 +2097,6 @@ export default {
     color: var(--white);
 
     font-size: 22px;
-
 }
 
 .small-label {
@@ -1871,7 +2112,6 @@ export default {
     font-weight: 800;
 
     letter-spacing: 2px;
-
 }
 
 .vmv-content h3 {
@@ -1885,13 +2125,11 @@ export default {
         sans-serif;
 
     font-size: 34px;
-
 }
 
 .vmv-content h3 strong {
 
     color: var(--orange);
-
 }
 
 .vmv-content p {
@@ -1903,20 +2141,17 @@ export default {
     font-size: 13px;
 
     line-height: 1.8;
-
 }
 
 .values-card {
 
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 
     overflow: hidden;
 
     background: var(--green-dark);
-
 }
 
 .values-left {
@@ -1924,7 +2159,6 @@ export default {
     position: relative;
 
     padding: 60px;
-
 }
 
 .values-left .vmv-number {
@@ -1932,7 +2166,6 @@ export default {
     position: static;
 
     margin-bottom: 40px;
-
 }
 
 .values-left h3 {
@@ -1946,30 +2179,27 @@ export default {
         sans-serif;
 
     font-size: 38px;
-
 }
 
 .values-left h3 strong {
 
     color: var(--orange);
-
 }
 
 .values-left p {
 
-    color:
-        rgba(255, 255, 255, .55);
+    color: rgba(255, 255, 255, .55);
 
     font-size: 13px;
 
     line-height: 1.8;
-
 }
 
 .values-image {
 
     min-height: 350px;
 
+    overflow: hidden;
 }
 
 .values-image img {
@@ -1980,6 +2210,14 @@ export default {
 
     object-fit: cover;
 
+    display: block;
+
+    transition: transform .6s ease;
+}
+
+.values-card:hover .values-image img {
+
+    transform: scale(1.04);
 }
 
 .values-list {
@@ -1991,7 +2229,6 @@ export default {
     justify-content: center;
 
     padding: 40px;
-
 }
 
 .values-list div {
@@ -2004,7 +2241,6 @@ export default {
 
     border-bottom:
         1px solid rgba(255, 255, 255, .12);
-
 }
 
 .values-list span {
@@ -2012,16 +2248,13 @@ export default {
     color: var(--orange);
 
     font-size: 10px;
-
 }
 
 .values-list strong {
 
-    color:
-        rgba(255, 255, 255, .9);
+    color: rgba(255, 255, 255, .9);
 
     font-size: 12px;
-
 }
 
 
@@ -2032,7 +2265,6 @@ export default {
 .journey-section {
 
     background: var(--green-dark);
-
 }
 
 .journey-video-wrap {
@@ -2042,7 +2274,6 @@ export default {
     min-height: 430px;
 
     overflow: hidden;
-
 }
 
 .journey-video {
@@ -2056,7 +2287,6 @@ export default {
     height: 100%;
 
     object-fit: cover;
-
 }
 
 .journey-overlay {
@@ -2069,7 +2299,6 @@ export default {
         linear-gradient(90deg,
             rgba(7, 28, 19, .94),
             rgba(7, 28, 19, .45));
-
 }
 
 .journey-grid {
@@ -2088,7 +2317,6 @@ export default {
             transparent 1px);
 
     background-size: 60px 60px;
-
 }
 
 .journey-content {
@@ -2097,13 +2325,13 @@ export default {
 
     z-index: 3;
 
-    width: min(1180px,
+    width:
+        min(1180px,
             calc(100% - 48px));
 
     margin: 0 auto;
 
     padding: 90px 0;
-
 }
 
 .journey-content h2 {
@@ -2117,29 +2345,23 @@ export default {
         sans-serif;
 
     font-size:
-        clamp(40px,
-            6vw,
-            72px);
+        clamp(40px, 6vw, 72px);
 
     line-height: .95;
 
     letter-spacing: -3px;
-
 }
 
 .journey-content h2 strong {
 
     color: var(--orange-light);
-
 }
 
 .journey-content p {
 
-    color:
-        rgba(255, 255, 255, .68);
+    color: rgba(255, 255, 255, .68);
 
     font-size: 14px;
-
 }
 
 .journey-line {
@@ -2151,7 +2373,6 @@ export default {
     margin: 28px 0;
 
     background: var(--orange);
-
 }
 
 .journey-meta {
@@ -2161,23 +2382,20 @@ export default {
     flex-wrap: wrap;
 
     gap: 25px;
-
 }
 
 .journey-meta span {
 
-    color:
-        rgba(255, 255, 255, .5);
+    color: rgba(255, 255, 255, .5);
 
     font-size: 9px;
 
     letter-spacing: 2px;
-
 }
 
 
 /* =========================================================
-   TEAM SECTION
+   TEAM
 ========================================================= */
 
 .team-section {
@@ -2185,22 +2403,19 @@ export default {
     padding: 90px 0;
 
     background: var(--cream);
-
 }
 
 .team-heading {
 
     display: grid;
 
-    grid-template-columns:
-        1fr 380px;
+    grid-template-columns: 1fr 380px;
 
     gap: 50px;
 
     align-items: end;
 
     margin-bottom: 40px;
-
 }
 
 .team-heading h2 {
@@ -2214,14 +2429,11 @@ export default {
         sans-serif;
 
     font-size:
-        clamp(40px,
-            6vw,
-            70px);
+        clamp(40px, 6vw, 70px);
 
     line-height: .95;
 
     letter-spacing: -3px;
-
 }
 
 .team-heading h2 strong {
@@ -2229,7 +2441,6 @@ export default {
     display: block;
 
     color: var(--orange);
-
 }
 
 .team-heading p {
@@ -2243,12 +2454,11 @@ export default {
     font-size: 13px;
 
     line-height: 1.8;
-
 }
 
 
 /* =========================================================
-   IMPORTANT TEAM SLIDER
+   TEAM SLIDER
 ========================================================= */
 
 .team-slider-window {
@@ -2257,12 +2467,15 @@ export default {
 
     width: 100%;
 
+    max-width: 100%;
+
     overflow: hidden;
 
     touch-action: pan-y;
 
     user-select: none;
 
+    box-sizing: border-box;
 }
 
 .team-slider-track {
@@ -2273,20 +2486,15 @@ export default {
 
     width: max-content;
 
+    margin: 0;
+
+    padding: 0;
+
     will-change: transform;
 
     transition:
-        transform .65s cubic-bezier(.22,
-            .61,
-            .36,
-            1);
-
+        transform .65s cubic-bezier(.22, .61, .36, 1);
 }
-
-
-/* =========================================================
-   TEAM CARD
-========================================================= */
 
 .team-card {
 
@@ -2295,71 +2503,90 @@ export default {
     flex:
         0 0 var(--team-card-width);
 
+    width:
+        var(--team-card-width);
+
     min-width:
         var(--team-card-width);
+
+    max-width:
+        var(--team-card-width);
+
+    box-sizing: border-box;
 
     overflow: hidden;
 
     background: var(--white);
 
-    border:
-        1px solid var(--line);
+    border: 1px solid var(--line);
 
     transition:
         box-shadow .35s ease,
         transform .35s ease;
-
 }
 
 .team-card:hover {
 
-    transform:
-        translateY(-6px);
+    transform: translateY(-6px);
 
     box-shadow:
         0 20px 45px rgba(20, 45, 32, .14);
-
 }
+
+
+/* =========================================================
+   TEAM IMAGE
+========================================================= */
 
 .team-image-wrap {
 
     position: relative;
 
-    height: 260px;
+    display: block;
+
+    width: 100%;
+
+    height: 300px;
+
+    min-height: 300px;
 
     overflow: hidden;
+
+    box-sizing: border-box;
 
     background:
         linear-gradient(135deg,
             #e9e8e2,
             #d5d3cb);
-
 }
 
 .team-image {
+
+    display: block;
 
     width: 100%;
 
     height: 100%;
 
-    display: block;
+    min-width: 100%;
+
+    min-height: 100%;
 
     object-fit: cover;
 
     object-position: center top;
 
-    transition:
-        transform .6s cubic-bezier(.22,
-            .61,
-            .36,
-            1);
+    opacity: 1;
 
+    visibility: visible;
+
+    transition:
+        transform .6s cubic-bezier(.22, .61, .36, 1);
 }
 
 .team-card:hover .team-image {
 
     transform: scale(1.06);
-
 }
 
 .team-image-overlay {
@@ -2374,7 +2601,6 @@ export default {
             rgba(7, 28, 19, .45));
 
     pointer-events: none;
-
 }
 
 .team-number {
@@ -2406,7 +2632,6 @@ export default {
     font-size: 11px;
 
     font-weight: 800;
-
 }
 
 .team-arrow {
@@ -2437,7 +2662,6 @@ export default {
     transition:
         transform .3s ease,
         background .3s ease;
-
 }
 
 .team-card:hover .team-arrow {
@@ -2448,8 +2672,12 @@ export default {
     background: var(--orange);
 
     color: var(--white);
-
 }
+
+
+/* =========================================================
+   TEAM INFO
+========================================================= */
 
 .team-info {
 
@@ -2465,6 +2693,7 @@ export default {
 
     padding: 20px;
 
+    box-sizing: border-box;
 }
 
 .team-info h3 {
@@ -2478,7 +2707,6 @@ export default {
         sans-serif;
 
     font-size: 19px;
-
 }
 
 .team-info p {
@@ -2490,17 +2718,17 @@ export default {
     font-size: 10px;
 
     line-height: 1.5;
-
 }
 
 .team-index {
+
+    flex: 0 0 auto;
 
     color: var(--orange);
 
     font-size: 10px;
 
     font-weight: 800;
-
 }
 
 
@@ -2515,13 +2743,11 @@ export default {
     align-items: center;
 
     justify-content: center;
-
 }
 
 .team-image-wrap.image-missing::after {
 
-    content:
-        "UNITECORE";
+    content: "UNITECORE";
 
     color:
         rgba(18, 60, 43, .35);
@@ -2535,7 +2761,6 @@ export default {
     font-weight: 800;
 
     letter-spacing: 3px;
-
 }
 
 
@@ -2552,7 +2777,6 @@ export default {
     justify-content: space-between;
 
     margin-top: 28px;
-
 }
 
 .team-control {
@@ -2575,7 +2799,6 @@ export default {
         background .25s ease,
         color .25s ease,
         transform .25s ease;
-
 }
 
 .team-control:hover {
@@ -2584,9 +2807,7 @@ export default {
 
     color: var(--white);
 
-    transform:
-        translateY(-2px);
-
+    transform: translateY(-2px);
 }
 
 .team-dots {
@@ -2599,6 +2820,7 @@ export default {
 
     gap: 8px;
 
+    flex-wrap: wrap;
 }
 
 .team-dot {
@@ -2619,7 +2841,6 @@ export default {
     transition:
         width .3s ease,
         background .3s ease;
-
 }
 
 .team-dot.active {
@@ -2627,7 +2848,6 @@ export default {
     width: 48px;
 
     background: var(--orange);
-
 }
 
 
@@ -2640,7 +2860,6 @@ export default {
     padding: 100px 0;
 
     background: var(--white);
-
 }
 
 .clients-heading {
@@ -2648,7 +2867,6 @@ export default {
     max-width: 800px;
 
     margin-bottom: 40px;
-
 }
 
 .clients-heading h2 {
@@ -2662,20 +2880,16 @@ export default {
         sans-serif;
 
     font-size:
-        clamp(40px,
-            6vw,
-            72px);
+        clamp(40px, 6vw, 72px);
 
     line-height: .95;
 
     letter-spacing: -3px;
-
 }
 
 .clients-heading h2 strong {
 
     color: var(--orange);
-
 }
 
 .clients-heading p {
@@ -2687,7 +2901,6 @@ export default {
     font-size: 14px;
 
     line-height: 1.8;
-
 }
 
 .clients-visual {
@@ -2697,7 +2910,6 @@ export default {
     height: 500px;
 
     overflow: hidden;
-
 }
 
 .clients-visual img {
@@ -2708,6 +2920,16 @@ export default {
 
     object-fit: cover;
 
+    object-position: center;
+
+    display: block;
+
+    transition: transform .7s ease;
+}
+
+.clients-visual:hover img {
+
+    transform: scale(1.04);
 }
 
 .clients-overlay {
@@ -2720,7 +2942,6 @@ export default {
         linear-gradient(90deg,
             rgba(7, 28, 19, .85),
             transparent);
-
 }
 
 .clients-label {
@@ -2738,7 +2959,6 @@ export default {
     font-weight: 800;
 
     letter-spacing: 2px;
-
 }
 
 
@@ -2751,22 +2971,19 @@ export default {
     padding: 100px 0;
 
     background: var(--cream);
-
 }
 
 .section-top {
 
     display: grid;
 
-    grid-template-columns:
-        1fr 400px;
+    grid-template-columns: 1fr 400px;
 
     gap: 50px;
 
     align-items: end;
 
     margin-bottom: 50px;
-
 }
 
 .section-top h2 {
@@ -2780,20 +2997,16 @@ export default {
         sans-serif;
 
     font-size:
-        clamp(40px,
-            6vw,
-            70px);
+        clamp(40px, 6vw, 70px);
 
     line-height: .95;
 
     letter-spacing: -3px;
-
 }
 
 .section-top h2 strong {
 
     color: var(--orange);
-
 }
 
 .section-top p {
@@ -2805,7 +3018,6 @@ export default {
     font-size: 13px;
 
     line-height: 1.8;
-
 }
 
 .why-grid {
@@ -2816,7 +3028,6 @@ export default {
         repeat(3, 1fr);
 
     gap: 20px;
-
 }
 
 .why-card {
@@ -2825,15 +3036,12 @@ export default {
 
     background: var(--white);
 
-    border:
-        1px solid var(--line);
-
+    border: 1px solid var(--line);
 }
 
 .why-card.featured {
 
     background: var(--green);
-
 }
 
 .why-card-top {
@@ -2845,7 +3053,6 @@ export default {
     justify-content: space-between;
 
     margin-bottom: 45px;
-
 }
 
 .why-card-top span {
@@ -2855,7 +3062,6 @@ export default {
     font-size: 10px;
 
     font-weight: 800;
-
 }
 
 .why-card-top i {
@@ -2863,7 +3069,6 @@ export default {
     color: var(--orange);
 
     font-size: 25px;
-
 }
 
 .why-card h3 {
@@ -2877,19 +3082,16 @@ export default {
         sans-serif;
 
     font-size: 29px;
-
 }
 
 .why-card.featured h3 {
 
     color: var(--white);
-
 }
 
 .why-card h3 strong {
 
     color: var(--orange);
-
 }
 
 .why-card p {
@@ -2901,14 +3103,12 @@ export default {
     font-size: 12px;
 
     line-height: 1.8;
-
 }
 
 .why-card.featured p {
 
     color:
         rgba(255, 255, 255, .62);
-
 }
 
 .why-card-line {
@@ -2920,7 +3120,6 @@ export default {
     margin-top: 25px;
 
     background: var(--orange);
-
 }
 
 
@@ -2933,18 +3132,15 @@ export default {
     padding: 100px 0;
 
     background: var(--green-dark);
-
 }
 
 .why-text-grid {
 
     display: grid;
 
-    grid-template-columns:
-        180px 1fr;
+    grid-template-columns: 180px 1fr;
 
     gap: 60px;
-
 }
 
 .large-number {
@@ -2959,7 +3155,6 @@ export default {
     font-size: 100px;
 
     line-height: .8;
-
 }
 
 .why-text h2 {
@@ -2973,14 +3168,11 @@ export default {
         sans-serif;
 
     font-size:
-        clamp(45px,
-            6vw,
-            80px);
+        clamp(45px, 6vw, 80px);
 
     line-height: .9;
 
     letter-spacing: -4px;
-
 }
 
 .why-text h2 em {
@@ -2988,7 +3180,6 @@ export default {
     color: var(--orange);
 
     font-style: normal;
-
 }
 
 .why-text p {
@@ -3003,7 +3194,6 @@ export default {
     font-size: 14px;
 
     line-height: 1.9;
-
 }
 
 
@@ -3019,26 +3209,22 @@ export default {
             1fr 300px;
 
         gap: 30px;
-
     }
 
     .vmv-content {
 
         padding: 40px;
-
     }
 
     .values-card {
 
         grid-template-columns:
             1fr 1fr;
-
     }
 
     .values-list {
 
-        grid-column:
-            1 / -1;
+        grid-column: 1 / -1;
 
         display: grid;
 
@@ -3048,7 +3234,6 @@ export default {
         gap: 15px;
 
         padding: 25px;
-
     }
 
     .values-list div {
@@ -3058,21 +3243,17 @@ export default {
         gap: 7px;
 
         border-bottom: 0;
-
     }
 
     .why-grid {
 
         grid-template-columns:
             1fr 1fr;
-
     }
 
     .why-card:last-child {
 
-        grid-column:
-            1 / -1;
-
+        grid-column: 1 / -1;
     }
 
 }
@@ -3088,7 +3269,6 @@ export default {
 
         width:
             calc(100% - 30px);
-
     }
 
 
@@ -3097,13 +3277,11 @@ export default {
     .about-hero {
 
         min-height: 650px;
-
     }
 
     .hero-content {
 
         padding-top: 60px;
-
     }
 
     .hero-content h1 {
@@ -3111,32 +3289,27 @@ export default {
         font-size: 55px;
 
         letter-spacing: -3px;
-
     }
 
     .hero-content p {
 
         font-size: 13px;
-
     }
 
     .hero-mini {
 
         gap: 20px;
-
     }
 
     .hero-side-text {
 
         display: none;
-
     }
 
     .hero-bottom {
 
         width:
             calc(100% - 30px);
-
     }
 
 
@@ -3145,7 +3318,6 @@ export default {
     .about-intro {
 
         padding: 70px 0;
-
     }
 
     .intro-grid {
@@ -3153,7 +3325,6 @@ export default {
         grid-template-columns: 1fr;
 
         gap: 25px;
-
     }
 
     .intro-label {
@@ -3163,7 +3334,6 @@ export default {
         align-items: center;
 
         gap: 10px;
-
     }
 
     .intro-label span {
@@ -3171,7 +3341,6 @@ export default {
         margin: 0;
 
         font-size: 25px;
-
     }
 
     .section-image-wrap {
@@ -3179,7 +3348,6 @@ export default {
         height: 280px;
 
         margin-bottom: 35px;
-
     }
 
 
@@ -3188,13 +3356,11 @@ export default {
     .vmv-section {
 
         padding: 70px 0;
-
     }
 
     .vmv-card {
 
         grid-template-columns: 1fr;
-
     }
 
     .vmv-image {
@@ -3202,42 +3368,37 @@ export default {
         min-height: 260px;
 
         order: 1;
-
     }
 
     .vmv-content {
 
         order: 2;
 
-        padding: 35px 25px;
-
+        padding:
+            35px 25px;
     }
 
     .values-card {
 
         grid-template-columns: 1fr;
-
     }
 
     .values-left {
 
-        padding: 40px 25px;
-
+        padding:
+            40px 25px;
     }
 
     .values-image {
 
         min-height: 250px;
-
     }
 
     .values-list {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
         padding: 25px;
-
     }
 
     .values-list div {
@@ -3248,7 +3409,6 @@ export default {
 
         border-bottom:
             1px solid rgba(255, 255, 255, .12);
-
     }
 
 
@@ -3257,7 +3417,6 @@ export default {
     .journey-content {
 
         padding: 70px 0;
-
     }
 
 
@@ -3266,7 +3425,6 @@ export default {
     .team-section {
 
         padding: 70px 0;
-
     }
 
     .team-heading {
@@ -3276,25 +3434,77 @@ export default {
         gap: 20px;
 
         margin-bottom: 30px;
-
     }
 
     .team-heading p {
 
         max-width: 100%;
+    }
 
+    .team-slider-window {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        overflow: hidden;
+
+        margin: 0;
+
+        padding: 0;
+    }
+
+    .team-slider-track {
+
+        gap: 15px;
+
+        width: max-content;
+    }
+
+    .team-card {
+
+        flex:
+            0 0 var(--team-card-width);
+
+        width:
+            var(--team-card-width);
+
+        min-width:
+            var(--team-card-width);
+
+        max-width:
+            var(--team-card-width);
     }
 
     .team-image-wrap {
 
-        height: 320px;
+        width: 100%;
 
+        height: 330px;
+
+        min-height: 330px;
+
+        max-height: 330px;
+    }
+
+    .team-image {
+
+        width: 100% !important;
+
+        height: 100% !important;
+
+        min-width: 100%;
+
+        min-height: 100%;
+
+        object-fit: cover;
+
+        object-position: center top;
     }
 
     .team-controls {
 
         margin-top: 22px;
-
     }
 
 
@@ -3303,13 +3513,11 @@ export default {
     .clients-section {
 
         padding: 70px 0;
-
     }
 
     .clients-visual {
 
         height: 350px;
-
     }
 
 
@@ -3318,7 +3526,6 @@ export default {
     .why-section {
 
         padding: 70px 0;
-
     }
 
     .section-top {
@@ -3326,25 +3533,21 @@ export default {
         grid-template-columns: 1fr;
 
         gap: 20px;
-
     }
 
     .why-grid {
 
         grid-template-columns: 1fr;
-
     }
 
     .why-card:last-child {
 
         grid-column: auto;
-
     }
 
     .why-card p {
 
         min-height: auto;
-
     }
 
 
@@ -3353,7 +3556,6 @@ export default {
     .why-text {
 
         padding: 70px 0;
-
     }
 
     .why-text-grid {
@@ -3361,13 +3563,11 @@ export default {
         grid-template-columns: 1fr;
 
         gap: 20px;
-
     }
 
     .large-number {
 
         font-size: 70px;
-
     }
 
 }
@@ -3382,31 +3582,30 @@ export default {
     .hero-content h1 {
 
         font-size: 47px;
-
     }
 
     .hero-mini {
 
         gap: 15px;
-
     }
 
     .hero-mini strong {
 
         font-size: 11px;
-
     }
 
     .hero-mini span {
 
         font-size: 9px;
-
     }
 
     .team-image-wrap {
 
         height: 300px;
 
+        min-height: 300px;
+
+        max-height: 300px;
     }
 
     .team-info {
@@ -3414,7 +3613,6 @@ export default {
         min-height: 90px;
 
         padding: 17px;
-
     }
 
 }

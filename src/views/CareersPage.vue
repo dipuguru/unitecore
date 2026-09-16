@@ -15,7 +15,9 @@
         <section class="careers-hero">
 
             <div class="hero-background">
-                <img src="/images/career/2024-6.jpg" alt="Life at UniteCore" />
+
+                <img :src="careerImage('career-hero.jpg')" alt="UniteCore professional team" />
+
             </div>
 
             <div class="hero-overlay"></div>
@@ -89,7 +91,6 @@
 
         <!-- =====================================================
              LIFE AT UNITECORE
-             WHITE BACKGROUND
         ====================================================== -->
 
         <section id="life-section" class="life-section section-white">
@@ -123,7 +124,7 @@
 
                     <div class="life-image life-large">
 
-                        <img src="/images/career/about6.jpeg" alt="UniteCore team" />
+                        <img :src="careerImage('career-team-1.jpg')" alt="UniteCore team collaboration" />
 
                         <div class="image-overlay">
                             <span>01</span>
@@ -137,7 +138,7 @@
 
                     <div class="life-image">
 
-                        <img src="/images/career/about7.jpeg" alt="UniteCore workplace" />
+                        <img :src="careerImage('career-team-2.jpg')" alt="UniteCore professional team meeting" />
 
                         <div class="image-overlay">
                             <span>02</span>
@@ -151,7 +152,7 @@
 
                     <div class="life-image">
 
-                        <img src="/images/career/life6.jpeg" alt="UniteCore employee life" />
+                        <img :src="careerImage('career-team-3.jpg')" alt="UniteCore employees working together" />
 
                         <div class="image-overlay">
                             <span>03</span>
@@ -165,11 +166,11 @@
 
                     <div class="life-image life-wide">
 
-                        <img src="/images/career/life4.png" alt="UniteCore team event" />
+                        <img :src="careerImage('career-office.jpg')" alt="UniteCore modern workplace" />
 
                         <div class="image-overlay">
                             <span>04</span>
-                            <strong>Celebrating Together</strong>
+                            <strong>Workplace Culture</strong>
                         </div>
 
                     </div>
@@ -179,7 +180,7 @@
 
                     <div class="life-image">
 
-                        <img src="/images/career/2022(8).jpeg" alt="UniteCore team activity" />
+                        <img :src="careerImage('career-team-4.jpg')" alt="UniteCore business team" />
 
                         <div class="image-overlay">
                             <span>05</span>
@@ -193,7 +194,7 @@
 
                     <div class="life-image">
 
-                        <img src="/images/career/2024-6.jpg" alt="UniteCore event" />
+                        <img :src="careerImage('career-team-5.jpg')" alt="UniteCore team event" />
 
                         <div class="image-overlay">
                             <span>06</span>
@@ -211,7 +212,6 @@
 
         <!-- =====================================================
              BENEFITS
-             LIGHT GRAY BACKGROUND
         ====================================================== -->
 
         <section class="benefits-section section-gray">
@@ -239,8 +239,6 @@
 
                 <div class="benefits-grid">
 
-                    <!-- 01 -->
-
                     <div class="benefit-card">
 
                         <div class="benefit-top">
@@ -259,8 +257,6 @@
 
                     </div>
 
-
-                    <!-- 02 -->
 
                     <div class="benefit-card">
 
@@ -281,8 +277,6 @@
                     </div>
 
 
-                    <!-- 03 -->
-
                     <div class="benefit-card">
 
                         <div class="benefit-top">
@@ -301,8 +295,6 @@
 
                     </div>
 
-
-                    <!-- 04 -->
 
                     <div class="benefit-card">
 
@@ -323,8 +315,6 @@
                     </div>
 
 
-                    <!-- 05 -->
-
                     <div class="benefit-card">
 
                         <div class="benefit-top">
@@ -343,8 +333,6 @@
 
                     </div>
 
-
-                    <!-- 06 -->
 
                     <div class="benefit-card">
 
@@ -365,8 +353,6 @@
                     </div>
 
 
-                    <!-- 07 -->
-
                     <div class="benefit-card">
 
                         <div class="benefit-top">
@@ -385,8 +371,6 @@
 
                     </div>
 
-
-                    <!-- 08 -->
 
                     <div class="benefit-card">
 
@@ -407,8 +391,6 @@
                     </div>
 
 
-                    <!-- 09 -->
-
                     <div class="benefit-card">
 
                         <div class="benefit-top">
@@ -427,8 +409,6 @@
 
                     </div>
 
-
-                    <!-- 10 -->
 
                     <div class="benefit-card">
 
@@ -457,7 +437,6 @@
 
         <!-- =====================================================
              CURRENT OPENINGS
-             WHITE BACKGROUND
         ====================================================== -->
 
         <section id="career-section" class="openings-section section-white">
@@ -578,7 +557,6 @@
 
         <!-- =====================================================
              TESTIMONIALS
-             LIGHT GRAY BACKGROUND
         ====================================================== -->
 
         <section class="testimonials-section section-gray">
@@ -605,7 +583,7 @@
 
                 <div class="testimonial-grid">
 
-                    <!-- TESTIMONIAL 01 -->
+                    <!-- 01 -->
 
                     <article class="testimonial-card">
 
@@ -641,7 +619,7 @@
 
                             <div class="author-image">
 
-                                <img src="/images/about/pooja.jpg" alt="Pooja Sanas" />
+                                <img :src="careerImage('career-pooja.jpg')" alt="Pooja Sanas" />
 
                             </div>
 
@@ -662,7 +640,7 @@
                     </article>
 
 
-                    <!-- TESTIMONIAL 02 -->
+                    <!-- 02 -->
 
                     <article class="testimonial-card">
 
@@ -698,7 +676,7 @@
 
                             <div class="author-image">
 
-                                <img src="/images/about/girish.jpg" alt="Girish Rane" />
+                                <img :src="careerImage('career-girish.jpg')" alt="Girish Rane" />
 
                             </div>
 
@@ -719,7 +697,7 @@
                     </article>
 
 
-                    <!-- TESTIMONIAL 03 -->
+                    <!-- 03 -->
 
                     <article class="testimonial-card">
 
@@ -755,7 +733,7 @@
 
                             <div class="author-image">
 
-                                <img src="/images/about/suhas.jpg" alt="Suhas Kamble" />
+                                <img :src="careerImage('career-suhas.jpg')" alt="Suhas Kamble" />
 
                             </div>
 
@@ -784,7 +762,6 @@
 
         <!-- =====================================================
              CAREER APPLICATION
-             WHITE BACKGROUND
         ====================================================== -->
 
         <section id="application-section" class="application-section section-white">
@@ -792,8 +769,6 @@
             <div class="application-bg-circle"></div>
 
             <div class="careers-container">
-
-                <!-- SECTION HEADING -->
 
                 <div class="application-heading">
 
@@ -816,11 +791,9 @@
                 </div>
 
 
-                <!-- APPLICATION CARD -->
-
                 <div class="application-card">
 
-                    <!-- LEFT PANEL -->
+                    <!-- LEFT -->
 
                     <div class="application-info">
 
@@ -853,8 +826,6 @@
 
                         <div class="application-contact">
 
-                            <!-- EMAIL -->
-
                             <div class="application-contact-item">
 
                                 <div class="contact-icon">
@@ -876,8 +847,6 @@
                             </div>
 
 
-                            <!-- PHONE -->
-
                             <div class="application-contact-item">
 
                                 <div class="contact-icon">
@@ -898,8 +867,6 @@
 
                             </div>
 
-
-                            <!-- OFFICE -->
 
                             <div class="application-contact-item">
 
@@ -1266,7 +1233,6 @@
 
 
 <script>
-
 import HeaderSection from "@/components/HeaderSection.vue";
 import FooterSection from "@/components/FooterSection.vue";
 
@@ -1277,11 +1243,21 @@ export default {
     components: {
         HeaderSection,
         FooterSection
+    },
+
+    methods: {
+
+        careerImage(fileName) {
+
+            return `${process.env.BASE_URL}images/career/${fileName}`;
+
+        }
+
     }
 
 };
-
 </script>
+
 
 <style scoped>
 /* ============================================================
@@ -1403,8 +1379,6 @@ export default {
 }
 
 
-/* EXACT UNITECORE GREEN GRADIENT */
-
 .hero-overlay {
 
     position: absolute;
@@ -1459,8 +1433,7 @@ export default {
     right: 3%;
     top: 10%;
 
-    background:
-        rgba(52, 105, 88, 0.25);
+    background: rgba(52, 105, 88, 0.25);
 }
 
 
@@ -1472,8 +1445,7 @@ export default {
     left: 35%;
     bottom: -120px;
 
-    background:
-        rgba(65, 120, 100, 0.16);
+    background: rgba(65, 120, 100, 0.16);
 }
 
 
@@ -1521,8 +1493,7 @@ export default {
 
 
 .hero-label {
-
-    color: #8bb9aa;
+    color: #f5820b;
 }
 
 
@@ -1556,7 +1527,7 @@ export default {
 
     display: block;
 
-    color: #8bb9aa;
+    color: #f5820b;
 }
 
 
@@ -1642,17 +1613,18 @@ export default {
 }
 
 
-.primary-btn span {
+.primary-btn span,
+.apply-btn span {
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    width: 30px;
-    height: 30px;
+    min-width: 30px;
 
-
+    min-height: 30px;
 }
 
 
@@ -1668,8 +1640,7 @@ export default {
 
 .secondary-btn {
 
-    border:
-        1px solid rgba(255, 255, 255, 0.30);
+    border: 1px solid rgba(255, 255, 255, 0.30);
 
     color: var(--white);
 }
@@ -1677,9 +1648,9 @@ export default {
 
 .secondary-btn:hover {
 
-    border-color: #8bb9aa;
+    border-color: #f5820b;
 
-    color: #8bb9aa;
+    color: #f5820b;
 }
 
 
@@ -1695,14 +1666,13 @@ export default {
 
     padding: 28px;
 
-    border-left:
-        1px solid rgba(255, 255, 255, 0.25);
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 
 .hero-card-number {
 
-    color: #8bb9aa;
+    color: #f5820b;
 
     font-family: "JetBrains Mono", monospace;
 
@@ -1717,7 +1687,7 @@ export default {
 
     margin: 25px 0;
 
-    background: #8bb9aa;
+    background: #f5820b;
 }
 
 
@@ -1806,7 +1776,6 @@ export default {
 
 /* ============================================================
    LIFE SECTION
-   WHITE
 ============================================================ */
 
 .life-section {
@@ -1818,7 +1787,6 @@ export default {
 
 
 .life-section .section-label {
-
     color: var(--green);
 }
 
@@ -1850,13 +1818,11 @@ export default {
 
 
 .life-large {
-
     grid-row: span 2;
 }
 
 
 .life-wide {
-
     grid-column: span 2;
 }
 
@@ -1912,7 +1878,7 @@ export default {
 
 .image-overlay span {
 
-    color: #8bb9aa;
+    color: #f5820b;
 
     font-family: "JetBrains Mono", monospace;
 
@@ -1921,14 +1887,12 @@ export default {
 
 
 .image-overlay strong {
-
     font-size: 14px;
 }
 
 
 /* ============================================================
    BENEFITS
-   LIGHT GREEN
 ============================================================ */
 
 .benefits-section {
@@ -1937,16 +1901,13 @@ export default {
 
     background: var(--green-light);
 
-    border-top:
-        1px solid var(--line);
+    border-top: 1px solid var(--line);
 
-    border-bottom:
-        1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
 
 .benefits-section .section-label {
-
     color: var(--green);
 }
 
@@ -2018,8 +1979,7 @@ export default {
 
 
 .benefit-card:hover .benefit-top>span {
-
-    color: #8bb9aa;
+    color: #f5820b;
 }
 
 
@@ -2034,8 +1994,7 @@ export default {
     width: 48px;
     height: 48px;
 
-    border:
-        1px solid var(--green);
+    border: 1px solid var(--green);
 
     color: var(--green);
 
@@ -2045,9 +2004,9 @@ export default {
 
 .benefit-card:hover .benefit-icon {
 
-    border-color: #8bb9aa;
+    border-color: #f5820b;
 
-    color: #8bb9aa;
+    color: #f5820b;
 }
 
 
@@ -2074,15 +2033,12 @@ export default {
 
 
 .benefit-card:hover p {
-
-    color:
-        rgba(255, 255, 255, 0.62);
+    color: rgba(255, 255, 255, 0.62);
 }
 
 
 /* ============================================================
    OPENINGS
-   WHITE
 ============================================================ */
 
 .openings-section {
@@ -2094,7 +2050,6 @@ export default {
 
 
 .openings-section .section-label {
-
     color: var(--green);
 }
 
@@ -2136,8 +2091,7 @@ export default {
 
     overflow: hidden;
 
-    border:
-        1px solid var(--line);
+    border: 1px solid var(--line);
 
     background: var(--white);
 
@@ -2147,7 +2101,6 @@ export default {
 
 
 .opening-left {
-
     padding: 60px;
 }
 
@@ -2198,8 +2151,7 @@ export default {
     width: 48px;
     height: 48px;
 
-    border:
-        1px solid var(--green);
+    border: 1px solid var(--green);
 
     color: var(--green);
 
@@ -2275,7 +2227,7 @@ export default {
 
 .opening-detail span {
 
-    color: #8bb9aa;
+    color: #f5820b;
 
     font-family: "JetBrains Mono", monospace;
 
@@ -2305,21 +2257,6 @@ export default {
 }
 
 
-.apply-btn span {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 30px;
-    height: 30px;
-
-
-}
-
-
 .apply-btn:hover {
 
     background: var(--green-dark);
@@ -2330,16 +2267,8 @@ export default {
 }
 
 
-.apply-btn:hover span {
-
-    border-color:
-        rgba(255, 255, 255, 0.40);
-}
-
-
 /* ============================================================
    TESTIMONIALS
-   SOFT GREEN
 ============================================================ */
 
 .testimonials-section {
@@ -2348,16 +2277,13 @@ export default {
 
     background: var(--green-soft);
 
-    border-top:
-        1px solid var(--line);
+    border-top: 1px solid var(--line);
 
-    border-bottom:
-        1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
 
 .testimonials-section .section-label {
-
     color: var(--green);
 }
 
@@ -2385,8 +2311,7 @@ export default {
 
     padding: 42px;
 
-    border:
-        1px solid var(--line);
+    border: 1px solid var(--line);
 
     background: var(--white);
 
@@ -2420,8 +2345,7 @@ export default {
 
 .quote-mark {
 
-    color:
-        rgba(16, 46, 39, 0.16);
+    color: rgba(16, 46, 39, 0.16);
 
     font-family: Georgia, serif;
 
@@ -2479,8 +2403,7 @@ export default {
 
     margin-top: 30px;
 
-    border-top:
-        1px solid var(--line);
+    border-top: 1px solid var(--line);
 }
 
 
@@ -2515,13 +2438,11 @@ export default {
 
 .author-info strong,
 .author-info span {
-
     display: block;
 }
 
 
 .author-info strong {
-
     font-size: 14px;
 }
 
@@ -2538,7 +2459,6 @@ export default {
 
 /* ============================================================
    APPLICATION
-   WHITE
 ============================================================ */
 
 .application-section {
@@ -2554,7 +2474,6 @@ export default {
 
 
 .application-section .section-label {
-
     color: var(--green);
 }
 
@@ -2629,8 +2548,7 @@ export default {
 
     overflow: hidden;
 
-    border:
-        1px solid var(--line);
+    border: 1px solid var(--line);
 
     background: var(--white);
 
@@ -2716,7 +2634,7 @@ export default {
 
 .info-number {
 
-    color: #8bb9aa;
+    color: #f5820b;
 
     font-family: "JetBrains Mono", monospace;
 
@@ -2757,7 +2675,7 @@ export default {
 
     display: block;
 
-    color: #8bb9aa;
+    color: #f5820b;
 
     font-weight: 600;
 }
@@ -2828,7 +2746,7 @@ export default {
     border:
         1px solid rgba(139, 185, 170, 0.45);
 
-    color: #8bb9aa;
+    color: #f5820b;
 
     font-size: 14px;
 }
@@ -2870,8 +2788,7 @@ export default {
 
 
 .application-contact-item a:hover {
-
-    color: #8bb9aa;
+    color: #f5820b;
 }
 
 
@@ -3006,7 +2923,6 @@ export default {
 ============================================================ */
 
 .input-wrapper {
-
     position: relative;
 }
 
@@ -3081,7 +2997,6 @@ export default {
 
 .form-field input::placeholder,
 .form-field textarea::placeholder {
-
     color: #9aa39f;
 }
 
@@ -3112,7 +3027,6 @@ export default {
 ============================================================ */
 
 .resume-upload {
-
     position: relative;
 }
 
@@ -3283,7 +3197,7 @@ export default {
 
 
 /* ============================================================
-   APPLICATION SUBMIT
+   SUBMIT
 ============================================================ */
 
 .application-submit {
@@ -3367,7 +3281,6 @@ export default {
 
 
 .application-submit:hover::before {
-
     transform: translateX(0);
 }
 
@@ -3421,13 +3334,11 @@ export default {
 
 
     .careers-hero {
-
         min-height: 700px;
     }
 
 
     .hero-side-card {
-
         display: none;
     }
 
@@ -3451,7 +3362,6 @@ export default {
 
 
     .life-wide {
-
         grid-column: span 2;
     }
 
@@ -3478,13 +3388,11 @@ export default {
 
 
     .application-info {
-
         padding: 50px;
     }
 
 
     .career-form {
-
         padding: 50px;
     }
 }
@@ -3504,26 +3412,22 @@ export default {
 
 
     .testimonial-card:last-child {
-
         grid-column: span 1;
     }
 
 
     .testimonial-card {
-
         min-height: auto;
     }
 
 
     .opening-left,
     .opening-right {
-
         padding: 38px;
     }
 
 
     .opening-left h3 {
-
         font-size: 34px;
     }
 }
@@ -3536,22 +3440,16 @@ export default {
 @media (max-width: 600px) {
 
     .careers-container {
-
-        width:
-            calc(100% - 28px);
+        width: calc(100% - 28px);
     }
 
 
-    /* HERO */
-
     .careers-hero {
-
         min-height: 720px;
     }
 
 
     .hero-content h1 {
-
         font-size: 50px;
     }
 
@@ -3565,7 +3463,6 @@ export default {
 
 
     .hero-description.secondary {
-
         font-size: 13px;
     }
 
@@ -3580,12 +3477,9 @@ export default {
 
     .primary-btn,
     .secondary-btn {
-
         width: 100%;
     }
 
-
-    /* SECTIONS */
 
     .life-section,
     .benefits-section,
@@ -3598,7 +3492,6 @@ export default {
 
 
     .section-heading {
-
         margin-bottom: 45px;
     }
 
@@ -3606,12 +3499,9 @@ export default {
     .section-heading h2,
     .openings-header h2,
     .application-heading h2 {
-
         font-size: 43px;
     }
 
-
-    /* LIFE */
 
     .life-gallery {
 
@@ -3634,12 +3524,8 @@ export default {
     }
 
 
-    /* BENEFITS */
-
     .benefits-grid {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
 
@@ -3652,12 +3538,9 @@ export default {
 
 
     .benefit-card h3 {
-
         margin-top: 45px;
     }
 
-
-    /* OPENINGS */
 
     .openings-header {
 
@@ -3671,13 +3554,11 @@ export default {
 
     .opening-left,
     .opening-right {
-
         padding: 30px;
     }
 
 
     .opening-title-row {
-
         gap: 14px;
     }
 
@@ -3692,80 +3573,63 @@ export default {
 
 
     .opening-left h3 {
-
         font-size: 30px;
     }
 
 
-    /* TESTIMONIALS */
-
     .testimonial-card {
-
         padding: 30px;
     }
 
 
     .testimonial-card h3 {
-
         font-size: 22px;
     }
 
 
-    /* APPLICATION */
-
     .application-heading {
-
         margin-bottom: 40px;
     }
 
 
     .application-info {
-
         padding: 30px;
     }
 
 
     .application-info h3 {
-
         font-size: 34px;
     }
 
 
     .application-contact {
-
         margin-top: 40px;
     }
 
 
     .career-form {
-
         padding: 28px 22px;
     }
 
 
     .form-row {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
         gap: 0;
     }
 
 
     .resume-label {
-
         align-items: flex-start;
     }
 
 
     .browse-btn {
-
         display: none;
     }
 
 
     .info-bottom-line {
-
         font-size: 7px;
     }
 }
@@ -3778,7 +3642,6 @@ export default {
 @media (max-width: 400px) {
 
     .hero-content h1 {
-
         font-size: 43px;
     }
 
@@ -3786,19 +3649,16 @@ export default {
     .section-heading h2,
     .openings-header h2,
     .application-heading h2 {
-
         font-size: 38px;
     }
 
 
     .application-info h3 {
-
         font-size: 30px;
     }
 
 
     .opening-left h3 {
-
         font-size: 27px;
     }
 }

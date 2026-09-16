@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 import HomePage from "../views/HomePage.vue";
 import ServicesPage from "../views/ServicesPage.vue";
@@ -6,68 +6,67 @@ import AboutPage from "../views/AboutPage.vue";
 import CareersPage from "../views/CareersPage.vue";
 import BlogsPage from "../views/BlogsPage.vue";
 import ContactPage from "../views/ContactPage.vue";
-import WhyUniteCore from "../views/WhyUniteCore.vue"
+import WhyUniteCore from "../views/WhyUniteCore.vue";
 
 const routes = [
-
     {
         path: "/",
         name: "Home",
-        component: HomePage,
+        component: HomePage
     },
 
     {
         path: "/services",
         name: "Services",
-        component: ServicesPage,
+        component: ServicesPage
+    },
+
+    {
+        path: "/solutions",
+        redirect: "/services"
     },
 
     {
         path: "/about",
         name: "About",
-        component: AboutPage,
+        component: AboutPage
     },
+
     {
         path: "/WhyUniteCore",
         name: "WhyUniteCore",
-        component: WhyUniteCore,
+        component: WhyUniteCore
     },
 
     {
         path: "/careers",
         name: "Careers",
-        component: CareersPage,
+        component: CareersPage
     },
 
     {
         path: "/blogs",
         name: "Blogs",
-        component: BlogsPage,
+        component: BlogsPage
     },
 
     {
         path: "/contact",
         name: "Contact",
-        component: ContactPage,
-    },
-
+        component: ContactPage
+    }
 ];
 
 const router = createRouter({
-
-    history: createWebHistory(),
-
+    history: createWebHashHistory(),
     routes,
 
     scrollBehavior() {
-
         return {
             top: 0,
-            behavior: "smooth",
+            behavior: "smooth"
         };
-
-    },
-
+    }
 });
 
 export default router;
