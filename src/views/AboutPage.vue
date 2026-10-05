@@ -152,6 +152,227 @@
 
 
         <!-- =====================================================
+             TEAM GROWTH / 2015 - 2025
+        ====================================================== -->
+
+        <section class="growth-section">
+
+            <div class="about-container">
+
+                <div class="growth-heading">
+
+                    <div class="eyebrow">
+                        <span></span>
+                        OUR GROWTH
+                    </div>
+
+                    <h2>
+                        A decade of
+                        <strong>growth &amp; togetherness.</strong>
+                    </h2>
+
+                    <p>
+                        From our beginnings in 2015 to the organization we
+                        are today, every milestone has been shaped by our
+                        people, our customers and our commitment to
+                        technology.
+                    </p>
+
+                </div>
+
+
+                <div class="growth-intro">
+
+                    <div class="growth-intro-number">
+                        2015
+                    </div>
+
+                    <div class="growth-intro-content">
+
+                        <span class="small-label">
+                            GLIMPSE OF OUR JOURNEY
+                        </span>
+
+                        <h3>
+                            From a growing team
+                            <strong>to a stronger organization.</strong>
+                        </h3>
+
+                        <p>
+                            Over the years, our team has continued to expand,
+                            evolve and build meaningful relationships with
+                            customers and partners. These moments capture
+                            the people and culture behind our journey from
+                            2015 to 2025.
+                        </p>
+
+                    </div>
+
+                    <div class="growth-intro-year">
+                        2025
+                    </div>
+
+                </div>
+
+
+                <div class="growth-gallery">
+
+                    <!-- 2015 -->
+                    <article class="growth-photo growth-photo-large">
+
+                        <div class="growth-photo-image">
+
+                            <img :src="aboutUsPhoto1" alt="UniteCore team growth and journey from 2015"
+                                @error="handleImageError" />
+
+                            <div class="growth-photo-overlay"></div>
+
+                            <div class="growth-photo-number">
+                                01
+                            </div>
+
+                            <div class="growth-photo-year">
+                                2015
+                            </div>
+
+                        </div>
+
+                        <div class="growth-photo-content">
+
+                            <span>
+                                THE BEGINNING
+                            </span>
+
+                            <h3>
+                                Where the journey started.
+                            </h3>
+
+                            <p>
+                                A glimpse into the early years of our
+                                organization and the people who helped build
+                                the foundation of UniteCore.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 2025 -->
+                    <article class="growth-photo growth-photo-large">
+
+                        <div class="growth-photo-image">
+
+                            <img :src="aboutUsPhoto2" alt="UniteCore team growth and journey in 2025"
+                                @error="handleImageError" />
+
+                            <div class="growth-photo-overlay"></div>
+
+                            <div class="growth-photo-number">
+                                02
+                            </div>
+
+                            <div class="growth-photo-year">
+                                2025
+                            </div>
+
+                        </div>
+
+                        <div class="growth-photo-content">
+
+                            <span>
+                                THE NEXT CHAPTER
+                            </span>
+
+                            <h3>
+                                Growing together.
+                            </h3>
+
+                            <p>
+                                A decade of collaboration, innovation and
+                                shared success that continues to shape the
+                                future of UniteCore.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div class="growth-timeline">
+
+                    <div class="growth-timeline-line"></div>
+
+                    <div class="growth-timeline-item">
+
+                        <span class="growth-timeline-year">
+                            2015
+                        </span>
+
+                        <span class="growth-timeline-text">
+                            THE BEGINNING
+                        </span>
+
+                    </div>
+
+                    <div class="growth-timeline-item">
+
+                        <span class="growth-timeline-year">
+                            2018
+                        </span>
+
+                        <span class="growth-timeline-text">
+                            EXPANDING HORIZONS
+                        </span>
+
+                    </div>
+
+                    <div class="growth-timeline-item">
+
+                        <span class="growth-timeline-year">
+                            2020
+                        </span>
+
+                        <span class="growth-timeline-text">
+                            BUILDING RESILIENCE
+                        </span>
+
+                    </div>
+
+                    <div class="growth-timeline-item">
+
+                        <span class="growth-timeline-year">
+                            2023
+                        </span>
+
+                        <span class="growth-timeline-text">
+                            SCALING TOGETHER
+                        </span>
+
+                    </div>
+
+                    <div class="growth-timeline-item">
+
+                        <span class="growth-timeline-year">
+                            2025
+                        </span>
+
+                        <span class="growth-timeline-text">
+                            NEXT GEN
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
              VISION / MISSION / VALUES
         ====================================================== -->
 
@@ -749,8 +970,16 @@ import about6ImageFile from "../assets/about6.jpeg";
 import about7ImageFile from "../assets/about7.jpeg";
 import life6ImageFile from "../assets/life6.jpeg";
 import life4ImageFile from "../assets/life4.png";
-import journeyVideoFile from "../assets/journey_video.mp4";
+
 import clientsImageFile from "../assets/2022(8).jpeg";
+
+/* =========================================================
+   NEW ABOUT US GROWTH IMAGES
+========================================================= */
+
+import aboutUsPhoto1File from "../assets/about-us-photo1.jpeg";
+import aboutUsPhoto2File from "../assets/about-us-photo2.jpg";
+
 
 import shrikantImage from "../assets/shrikant.jpeg";
 import dineshImage from "../assets/dinesh.jpeg";
@@ -796,11 +1025,6 @@ export default {
 
             /* =================================================
                ABOUT PAGE IMAGES / VIDEO
-
-               IMPORTANT:
-               These are exposed through data() so that
-               Vue ESLint correctly recognizes their usage
-               inside the template.
             ================================================== */
 
             heroImage: heroImageFile,
@@ -813,9 +1037,16 @@ export default {
 
             life4Image: life4ImageFile,
 
-            journeyVideo: journeyVideoFile,
-
             clientsImage: clientsImageFile,
+
+
+            /* =================================================
+               NEW GROWTH IMAGES
+            ================================================== */
+
+            aboutUsPhoto1: aboutUsPhoto1File,
+
+            aboutUsPhoto2: aboutUsPhoto2File,
 
 
             /* =================================================
@@ -1937,6 +2168,478 @@ export default {
 
 
 /* =========================================================
+   TEAM GROWTH / 2015 - 2025
+========================================================= */
+
+.growth-section {
+
+    position: relative;
+
+    padding: 110px 0;
+
+    background: var(--cream);
+
+    overflow: hidden;
+}
+
+.growth-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    right: -180px;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(245, 130, 11, .10),
+            transparent 70%);
+
+    pointer-events: none;
+}
+
+.growth-heading {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 820px;
+
+    margin-bottom: 55px;
+}
+
+.growth-heading h2 {
+
+    margin: 20px 0;
+
+    color: var(--green);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(42px, 6vw, 76px);
+
+    line-height: .94;
+
+    letter-spacing: -4px;
+}
+
+.growth-heading h2 strong {
+
+    display: block;
+
+    color: var(--orange);
+}
+
+.growth-heading p {
+
+    max-width: 650px;
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   GROWTH INTRO
+========================================================= */
+
+.growth-intro {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: 130px 1fr 130px;
+
+    align-items: center;
+
+    gap: 35px;
+
+    margin-bottom: 35px;
+
+    padding: 35px 0;
+
+    border-top: 1px solid var(--line);
+
+    border-bottom: 1px solid var(--line);
+}
+
+.growth-intro-number,
+.growth-intro-year {
+
+    color: rgba(18, 60, 43, .12);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 64px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+}
+
+.growth-intro-year {
+
+    text-align: right;
+
+    color: rgba(245, 130, 11, .35);
+}
+
+.growth-intro-content {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.growth-intro-content .small-label {
+
+    margin-bottom: 10px;
+}
+
+.growth-intro-content h3 {
+
+    margin: 0 0 12px;
+
+    color: var(--green);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 27px;
+
+    line-height: 1.1;
+}
+
+.growth-intro-content h3 strong {
+
+    color: var(--orange);
+}
+
+.growth-intro-content p {
+
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   GROWTH GALLERY
+========================================================= */
+
+.growth-gallery {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+.growth-photo {
+
+    overflow: hidden;
+
+    background: var(--white);
+
+    border: 1px solid var(--line);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+.growth-photo:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 22px 50px rgba(18, 60, 43, .14);
+}
+
+.growth-photo-image {
+
+    position: relative;
+
+    height: 430px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(135deg,
+            #e9e8e2,
+            #d5d3cb);
+}
+
+.growth-photo-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition:
+        transform .7s cubic-bezier(.22, .61, .36, 1);
+}
+
+.growth-photo:hover .growth-photo-image img {
+
+    transform: scale(1.05);
+}
+
+.growth-photo-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(180deg,
+            rgba(7, 28, 19, .08) 20%,
+            rgba(7, 28, 19, .68) 100%);
+
+    pointer-events: none;
+}
+
+.growth-photo-number {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 18px;
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--orange);
+
+    color: var(--white);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.growth-photo-year {
+
+    position: absolute;
+
+    right: 25px;
+
+    bottom: 22px;
+
+    color: var(--white);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 48px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+.growth-photo-content {
+
+    padding: 28px 30px 32px;
+}
+
+.growth-photo-content>span {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--orange);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.growth-photo-content h3 {
+
+    margin: 0 0 10px;
+
+    color: var(--green);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 25px;
+}
+
+.growth-photo-content p {
+
+    max-width: 520px;
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   GROWTH TIMELINE
+========================================================= */
+
+.growth-timeline {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 20px;
+
+    margin-top: 55px;
+
+    padding-top: 35px;
+}
+
+.growth-timeline-line {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 1px;
+
+    background: var(--line);
+}
+
+.growth-timeline-item {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.growth-timeline-item::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -40px;
+
+    left: 0;
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: var(--orange);
+
+    box-shadow:
+        0 0 0 5px var(--cream);
+}
+
+.growth-timeline-year {
+
+    color: var(--green);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+.growth-timeline-text {
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
    VMV
 ========================================================= */
 
@@ -2812,6 +3515,10 @@ export default {
 
 .team-dots {
 
+    width: 100%;
+
+    max-width: 100%;
+
     display: flex;
 
     align-items: center;
@@ -2821,385 +3528,69 @@ export default {
     gap: 8px;
 
     flex-wrap: wrap;
+
+    padding: 10px 15px;
+
+    box-sizing: border-box;
 }
 
 .team-dot {
 
-    width: 28px;
+    flex: 0 0 20px;
 
-    height: 3px;
+    width: 20px;
+
+    height: 20px;
+
+    min-width: 20px;
+
+    max-width: 20px;
 
     padding: 0;
 
+    margin: 0;
+
     border: 0;
 
+    border-radius: 999px;
+
     background:
-        rgba(18, 60, 43, .2);
+        rgba(18, 60, 43, 0.2);
 
     cursor: pointer;
 
     transition:
-        width .3s ease,
-        background .3s ease;
+        width 0.3s ease,
+        min-width 0.3s ease,
+        max-width 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+
+    box-sizing: border-box;
+}
+
+.team-dot:hover {
+
+    transform: scale(1.1);
 }
 
 .team-dot.active {
 
+    flex-basis: 48px;
+
     width: 48px;
 
-    background: var(--orange);
-}
+    min-width: 48px;
 
-
-/* =========================================================
-   CLIENTS
-========================================================= */
-
-.clients-section {
-
-    padding: 100px 0;
-
-    background: var(--white);
-}
-
-.clients-heading {
-
-    max-width: 800px;
-
-    margin-bottom: 40px;
-}
-
-.clients-heading h2 {
-
-    margin: 18px 0;
-
-    color: var(--green);
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size:
-        clamp(40px, 6vw, 72px);
-
-    line-height: .95;
-
-    letter-spacing: -3px;
-}
-
-.clients-heading h2 strong {
-
-    color: var(--orange);
-}
-
-.clients-heading p {
-
-    max-width: 600px;
-
-    color: var(--muted);
-
-    font-size: 14px;
-
-    line-height: 1.8;
-}
-
-.clients-visual {
-
-    position: relative;
-
-    height: 500px;
-
-    overflow: hidden;
-}
-
-.clients-visual img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    object-position: center;
-
-    display: block;
-
-    transition: transform .7s ease;
-}
-
-.clients-visual:hover img {
-
-    transform: scale(1.04);
-}
-
-.clients-overlay {
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(90deg,
-            rgba(7, 28, 19, .85),
-            transparent);
-}
-
-.clients-label {
-
-    position: absolute;
-
-    left: 30px;
-
-    bottom: 30px;
-
-    color: var(--white);
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-}
-
-
-/* =========================================================
-   WHY
-========================================================= */
-
-.why-section {
-
-    padding: 100px 0;
-
-    background: var(--cream);
-}
-
-.section-top {
-
-    display: grid;
-
-    grid-template-columns: 1fr 400px;
-
-    gap: 50px;
-
-    align-items: end;
-
-    margin-bottom: 50px;
-}
-
-.section-top h2 {
-
-    margin: 18px 0 0;
-
-    color: var(--green);
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size:
-        clamp(40px, 6vw, 70px);
-
-    line-height: .95;
-
-    letter-spacing: -3px;
-}
-
-.section-top h2 strong {
-
-    color: var(--orange);
-}
-
-.section-top p {
-
-    margin: 0;
-
-    color: var(--muted);
-
-    font-size: 13px;
-
-    line-height: 1.8;
-}
-
-.why-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-.why-card {
-
-    padding: 35px;
-
-    background: var(--white);
-
-    border: 1px solid var(--line);
-}
-
-.why-card.featured {
-
-    background: var(--green);
-}
-
-.why-card-top {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    margin-bottom: 45px;
-}
-
-.why-card-top span {
-
-    color: var(--orange);
-
-    font-size: 10px;
-
-    font-weight: 800;
-}
-
-.why-card-top i {
-
-    color: var(--orange);
-
-    font-size: 25px;
-}
-
-.why-card h3 {
-
-    margin: 0 0 18px;
-
-    color: var(--green);
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size: 29px;
-}
-
-.why-card.featured h3 {
-
-    color: var(--white);
-}
-
-.why-card h3 strong {
-
-    color: var(--orange);
-}
-
-.why-card p {
-
-    min-height: 95px;
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-    line-height: 1.8;
-}
-
-.why-card.featured p {
-
-    color:
-        rgba(255, 255, 255, .62);
-}
-
-.why-card-line {
-
-    width: 45px;
-
-    height: 2px;
-
-    margin-top: 25px;
+    max-width: 48px;
 
     background: var(--orange);
 }
 
 
-/* =========================================================
-   DIFFERENCE
-========================================================= */
-
-.why-text {
-
-    padding: 100px 0;
-
-    background: var(--green-dark);
-}
-
-.why-text-grid {
-
-    display: grid;
-
-    grid-template-columns: 180px 1fr;
-
-    gap: 60px;
-}
-
-.large-number {
-
-    color:
-        rgba(255, 255, 255, .12);
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size: 100px;
-
-    line-height: .8;
-}
-
-.why-text h2 {
-
-    margin: 18px 0 25px;
-
-    color: var(--white);
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size:
-        clamp(45px, 6vw, 80px);
-
-    line-height: .9;
-
-    letter-spacing: -4px;
-}
-
-.why-text h2 em {
-
-    color: var(--orange);
-
-    font-style: normal;
-}
-
-.why-text p {
-
-    max-width: 800px;
-
-    margin: 0;
-
-    color:
-        rgba(255, 255, 255, .62);
-
-    font-size: 14px;
-
-    line-height: 1.9;
-}
-
-
-/* =========================================================
+/* =========================================
    TABLET
-========================================================= */
+========================================= */
 
 @media (max-width: 1050px) {
 
@@ -3254,6 +3645,67 @@ export default {
     .why-card:last-child {
 
         grid-column: 1 / -1;
+    }
+
+
+    /* GROWTH */
+
+    .growth-intro {
+
+        grid-template-columns: 90px 1fr 90px;
+
+        gap: 20px;
+    }
+
+    .growth-intro-number,
+    .growth-intro-year {
+
+        font-size: 48px;
+    }
+
+    .growth-photo-image {
+
+        height: 360px;
+    }
+
+}
+
+
+/* =========================================
+   TABLET TEAM DOTS
+========================================= */
+
+@media (max-width: 768px) {
+
+    .team-dots {
+
+        gap: 7px;
+
+        padding: 10px 12px;
+    }
+
+    .team-dot {
+
+        flex-basis: 16px;
+
+        width: 16px;
+
+        min-width: 16px;
+
+        max-width: 16px;
+
+        height: 16px;
+    }
+
+    .team-dot.active {
+
+        flex-basis: 38px;
+
+        width: 38px;
+
+        min-width: 38px;
+
+        max-width: 38px;
     }
 
 }
@@ -3348,6 +3800,149 @@ export default {
         height: 280px;
 
         margin-bottom: 35px;
+    }
+
+
+    /* =====================================================
+       GROWTH
+    ====================================================== */
+
+    .growth-section {
+
+        padding: 75px 0;
+    }
+
+    .growth-heading {
+
+        margin-bottom: 40px;
+    }
+
+    .growth-heading h2 {
+
+        font-size: 48px;
+
+        letter-spacing: -3px;
+    }
+
+    .growth-intro {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        padding: 25px 0;
+
+        text-align: left;
+    }
+
+    .growth-intro-number,
+    .growth-intro-year {
+
+        font-size: 38px;
+
+        text-align: left;
+    }
+
+    .growth-intro-number {
+
+        color: rgba(18, 60, 43, .16);
+    }
+
+    .growth-intro-year {
+
+        position: absolute;
+
+        right: 0;
+
+        top: 25px;
+
+        color: rgba(245, 130, 11, .28);
+    }
+
+    .growth-intro-content {
+
+        max-width: 100%;
+
+        margin: 0;
+
+        text-align: left;
+    }
+
+    .growth-intro-content h3 {
+
+        font-size: 24px;
+    }
+
+    .growth-gallery {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .growth-photo-image {
+
+        height: 310px;
+    }
+
+    .growth-photo-year {
+
+        font-size: 42px;
+    }
+
+    .growth-photo-content {
+
+        padding: 24px;
+    }
+
+    .growth-photo-content h3 {
+
+        font-size: 23px;
+    }
+
+    .growth-timeline {
+
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+
+        margin-top: 45px;
+
+        padding-top: 25px;
+
+        padding-left: 20px;
+    }
+
+    .growth-timeline-line {
+
+        top: 0;
+
+        bottom: 0;
+
+        left: 4px;
+
+        width: 1px;
+
+        height: auto;
+    }
+
+    .growth-timeline-item {
+
+        padding-left: 15px;
+    }
+
+    .growth-timeline-item::before {
+
+        top: 5px;
+
+        left: -20px;
+
+        width: 8px;
+
+        height: 8px;
+
+        box-shadow:
+            0 0 0 5px var(--cream);
     }
 
 
@@ -3573,9 +4168,49 @@ export default {
 }
 
 
-/* =========================================================
+/* =========================================
+   MOBILE TEAM DOTS
+========================================= */
+
+@media (max-width: 480px) {
+
+    .team-dots {
+
+        gap: 6px;
+
+        padding: 8px 10px;
+    }
+
+    .team-dot {
+
+        flex-basis: 13px;
+
+        width: 13px;
+
+        min-width: 13px;
+
+        max-width: 13px;
+
+        height: 13px;
+    }
+
+    .team-dot.active {
+
+        flex-basis: 30px;
+
+        width: 30px;
+
+        min-width: 30px;
+
+        max-width: 30px;
+    }
+
+}
+
+
+/* =========================================
    SMALL MOBILE
-========================================================= */
+========================================= */
 
 @media (max-width: 420px) {
 
@@ -3613,6 +4248,46 @@ export default {
         min-height: 90px;
 
         padding: 17px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+
+    .team-dots {
+
+        gap: 5px;
+
+        padding: 8px;
+    }
+
+    .team-dot {
+
+        flex-basis: 11px;
+
+        width: 11px;
+
+        min-width: 11px;
+
+        max-width: 11px;
+
+        height: 11px;
+    }
+
+    .team-dot.active {
+
+        flex-basis: 26px;
+
+        width: 26px;
+
+        min-width: 26px;
+
+        max-width: 26px;
     }
 
 }

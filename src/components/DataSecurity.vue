@@ -93,7 +93,7 @@
                             Data Loss Prevention (DLP)
                         </span>
 
-                        <i class="bi bi-arrow-up-right"></i>
+
                     </div>
 
 
@@ -104,7 +104,7 @@
                             Security Incident & Event Management (SIEM)
                         </span>
 
-                        <i class="bi bi-arrow-up-right"></i>
+
                     </div>
 
                 </div>
@@ -112,7 +112,7 @@
 
                 <router-link to="/solutions" class="security-link">
                     <span>Explore Data Security</span>
-                    <i class="bi bi-arrow-up-right"></i>
+
                 </router-link>
 
             </div>

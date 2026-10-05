@@ -22,3 +22,6 @@ pnpm-debug.log*
 *.sln
 *.sw?
 public/videos/about/journey_video.mp4
+src/assets/journey_video_backup.mp4
+src/assets/AI_Video_2025.mp4
+src/assets/Career-Page.mp4

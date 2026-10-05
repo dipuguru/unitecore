@@ -1,1299 +1,801 @@
 <template>
     <main class="careers-page">
-
-        <!-- =====================================================
-             HEADER
-        ====================================================== -->
-
         <HeaderSection />
 
-
-        <!-- =====================================================
-             HERO
-        ====================================================== -->
-
+        <!-- ==================== HERO ==================== -->
         <section class="careers-hero">
-
-            <div class="hero-background">
-
-                <img :src="careerImage('career-hero.jpg')" alt="UniteCore professional team" />
-
-            </div>
+            <div class="hero-background" :style="{ backgroundImage: `url(${careerImage('career-hero.jpg')})` }"></div>
 
             <div class="hero-overlay"></div>
-            <div class="hero-grid"></div>
 
-            <div class="hero-glow hero-glow-one"></div>
-            <div class="hero-glow hero-glow-two"></div>
+            <div class="hero-content">
+                <span class="hero-kicker">CAREERS AT UNITeCORE</span>
 
-            <div class="careers-container hero-container">
+                <h1>
+                    Build your career.<br />
+                    <em>Build what's next.</em>
+                </h1>
 
-                <div class="hero-content">
+                <p>
+                    Join a team where technology, ideas and people come together
+                    to create meaningful impact.
+                </p>
 
-                    <div class="hero-label">
-                        CAREERS AT UNITECORE
-                    </div>
+                <a href="#openings" class="hero-btn">
+                    Explore Opportunities
 
-                    <h1>
-                        Build your career.
-                        <span>Build the future.</span>
-                    </h1>
-
-                    <p class="hero-description">
-                        Join a team where technology, innovation and people
-                        come together to create meaningful digital experiences.
-                    </p>
-
-                    <p class="hero-description secondary">
-                        UniteCore Pvt. Ltd. is India's leading Managed IT
-                        Hosting Services Provider, specializing in Internet
-                        Data Centers, Managed Hosting, Infrastructure
-                        Management, Managed Security, Cloud Computing,
-                        Application Hosting, Messaging & Collaboration,
-                        and Disaster Recovery & Availability.
-                    </p>
-
-                    <div class="hero-actions">
-
-                        <a href="#career-section" class="primary-btn">
-                            <span>Join Us</span>
-                            <strong>↗</strong>
-                        </a>
-
-                        <a href="#life-section" class="secondary-btn">
-                            Explore Life at UniteCore
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div class="hero-side-card">
-
-                    <div class="hero-card-number">
-                        01
-                    </div>
-
-                    <div class="hero-card-line"></div>
-
-                    <p>
-                        People first.
-                        <strong>Technology always.</strong>
-                    </p>
-
-                </div>
-
+                </a>
             </div>
 
+            <div class="hero-scroll">
+                <span>SCROLL TO EXPLORE</span>
+
+            </div>
         </section>
 
-
-        <!-- =====================================================
-             LIFE AT UNITECORE
-        ====================================================== -->
-
-        <section id="life-section" class="life-section section-white">
-
-            <div class="careers-container">
-
+        <!-- ==================== LIFE AT UNITeCORE ==================== -->
+        <section class="life-section">
+            <div class="section-wrap">
                 <div class="section-heading">
-
-                    <div class="section-label">
-                        LIFE AT UNITECORE
-                    </div>
+                    <div class="section-kicker">01 / LIFE AT UNITeCORE</div>
 
                     <h2>
-                        Work hard.
-                        <span>Grow together.</span>
+                        Work with purpose.<br />
+                        <em>Grow with people.</em>
                     </h2>
 
                     <p>
-                        At UniteCore, we believe that great technology is
-                        created by great people. Our workplace encourages
-                        collaboration, continuous learning and meaningful
-                        professional growth.
+                        At UniteCore, we believe a great workplace is created by people
+                        who support one another, share ideas and enjoy building something
+                        meaningful together.
                     </p>
-
                 </div>
-
 
                 <div class="life-gallery">
-
-                    <!-- 01 -->
-
-                    <div class="life-image life-large">
-
-                        <img :src="careerImage('career-team-1.jpg')" alt="UniteCore team collaboration" />
-
-                        <div class="image-overlay">
-                            <span>01</span>
-                            <strong>People & Culture</strong>
-                        </div>
-
+                    <div class="gallery-item gallery-large">
+                        <img :src="careerImage('career-team-1.jpg')" alt="UniteCore team working together" />
+                        <span>People first</span>
                     </div>
 
-
-                    <!-- 02 -->
-
-                    <div class="life-image">
-
-                        <img :src="careerImage('career-team-2.jpg')" alt="UniteCore professional team meeting" />
-
-                        <div class="image-overlay">
-                            <span>02</span>
-                            <strong>Collaboration</strong>
-                        </div>
-
+                    <div class="gallery-item">
+                        <img :src="careerImage('career-team-2.jpg')" alt="Indian professionals collaborating" />
+                        <span>Collaborate</span>
                     </div>
 
-
-                    <!-- 03 -->
-
-                    <div class="life-image">
-
-                        <img :src="careerImage('career-team-3.jpg')" alt="UniteCore employees working together" />
-
-                        <div class="image-overlay">
-                            <span>03</span>
-                            <strong>Team Spirit</strong>
-                        </div>
-
+                    <div class="gallery-item">
+                        <img :src="careerImage('career-team-3.jpg')" alt="Professionals working in a modern office" />
+                        <span>Create</span>
                     </div>
 
-
-                    <!-- 04 -->
-
-                    <div class="life-image life-wide">
-
-                        <img :src="careerImage('career-office.jpg')" alt="UniteCore modern workplace" />
-
-                        <div class="image-overlay">
-                            <span>04</span>
-                            <strong>Workplace Culture</strong>
-                        </div>
-
+                    <div class="gallery-item gallery-wide">
+                        <img :src="careerImage('career-office.jpg')" alt="Modern workplace" />
+                        <span>One team</span>
                     </div>
 
-
-                    <!-- 05 -->
-
-                    <div class="life-image">
-
-                        <img :src="careerImage('career-team-4.jpg')" alt="UniteCore business team" />
-
-                        <div class="image-overlay">
-                            <span>05</span>
-                            <strong>Employee Life</strong>
-                        </div>
-
+                    <div class="gallery-item">
+                        <img :src="careerImage('career-team-4.jpg')" alt="Team discussion in office" />
+                        <span>Connect</span>
                     </div>
 
-
-                    <!-- 06 -->
-
-                    <div class="life-image">
-
-                        <img :src="careerImage('career-team-5.jpg')" alt="UniteCore team event" />
-
-                        <div class="image-overlay">
-                            <span>06</span>
-                            <strong>Team Events</strong>
-                        </div>
-
+                    <div class="gallery-item">
+                        <img :src="careerImage('career-team-5.jpg')" alt="Indian colleagues at work" />
+                        <span>Grow</span>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- =====================================================
-             BENEFITS
-        ====================================================== -->
-
-        <section class="benefits-section section-gray">
-
-            <div class="careers-container">
-
-                <div class="section-heading centered">
-
-                    <div class="section-label">
-                        EMPLOYEE BENEFITS
-                    </div>
+        <!-- ==================== CORE VALUES ==================== -->
+        <section class="core-values-section">
+            <div class="section-wrap">
+                <div class="core-values-intro">
+                    <div class="section-kicker">02 / OUR CORE VALUES</div>
 
                     <h2>
-                        What benefits are
-                        <span>waiting for you?</span>
+                        What we believe.<br />
+                        <em>How we work.</em>
                     </h2>
 
                     <p>
-                        We create an environment where our people can work,
-                        learn, celebrate and grow with confidence.
+                        Our values shape the way we work, collaborate and grow. They guide
+                        our decisions, strengthen our culture and help us create a workplace
+                        where every individual can make a difference.
                     </p>
-
                 </div>
 
-
-                <div class="benefits-grid">
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-top">
-                            <span>01</span>
-                            <div class="benefit-icon">↔</div>
+                <div class="core-values-grid">
+                    <!-- Value 01 -->
+                    <article class="core-value-card">
+                        <div class="core-value-image">
+                            <img :src="coreValueImages.integrity"
+                                alt="Indian professionals discussing work in an office" loading="lazy" />
+                            <span class="core-value-number">01</span>
                         </div>
 
-                        <h3>
-                            Flexible working hours
-                        </h3>
+                        <div class="core-value-content">
+                            <div class="core-value-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
 
-                        <p>
-                            Work with flexibility while maintaining
-                            productivity and work-life balance.
-                        </p>
+                            <h3>Integrity &amp; Trust</h3>
 
-                    </div>
+                            <p>
+                                We act with honesty, keep our commitments and build relationships
+                                based on trust, transparency and respect.
+                            </p>
+                        </div>
+                    </article>
 
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-top">
-                            <span>02</span>
-                            <div class="benefit-icon">◈</div>
+                    <!-- Value 02 -->
+                    <article class="core-value-card">
+                        <div class="core-value-image">
+                            <img :src="coreValueImages.collaboration"
+                                alt="Indian colleagues collaborating around a laptop" loading="lazy" />
+                            <span class="core-value-number">02</span>
                         </div>
 
-                        <h3>
-                            Sport compensation
-                        </h3>
+                        <div class="core-value-content">
+                            <div class="core-value-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
 
-                        <p>
-                            Stay active and healthy with our employee
-                            wellness initiatives.
-                        </p>
+                            <h3>Collaboration</h3>
 
-                    </div>
+                            <p>
+                                We share ideas, listen to different perspectives and work
+                                together to achieve better outcomes as one team.
+                            </p>
+                        </div>
+                    </article>
 
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-top">
-                            <span>03</span>
-                            <div class="benefit-icon">+</div>
+                    <!-- Value 03 -->
+                    <article class="core-value-card">
+                        <div class="core-value-image">
+                            <img :src="coreValueImages.innovation"
+                                alt="Diverse professionals brainstorming in a modern workplace" loading="lazy" />
+                            <span class="core-value-number">03</span>
                         </div>
 
-                        <h3>
-                            Health care Insurance
-                        </h3>
+                        <div class="core-value-content">
+                            <div class="core-value-icon">
+                                <i class="bi bi-lightbulb"></i>
+                            </div>
 
-                        <p>
-                            Health coverage designed to support you
-                            and your family.
-                        </p>
+                            <h3>Innovation</h3>
 
-                    </div>
+                            <p>
+                                We stay curious, challenge assumptions and turn better ideas
+                                into practical solutions that create real value.
+                            </p>
+                        </div>
+                    </article>
 
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-top">
-                            <span>04</span>
-                            <div class="benefit-icon">♡</div>
+                    <!-- Value 04 -->
+                    <article class="core-value-card">
+                        <div class="core-value-image">
+                            <img :src="coreValueImages.ownership" alt="Indian professionals planning a project together"
+                                loading="lazy" />
+                            <span class="core-value-number">04</span>
                         </div>
 
-                        <h3>
-                            Maternity Leaves
-                        </h3>
+                        <div class="core-value-content">
+                            <div class="core-value-icon">
+                                <i class="bi bi-person-check"></i>
+                            </div>
 
-                        <p>
-                            Supporting employees through important
-                            milestones in life.
-                        </p>
+                            <h3>Ownership</h3>
 
-                    </div>
+                            <p>
+                                We take responsibility for our work, follow through on our
+                                commitments and take pride in the impact we create.
+                            </p>
+                        </div>
+                    </article>
 
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-top">
-                            <span>05</span>
-                            <div class="benefit-icon">✦</div>
+                    <!-- Value 05 -->
+                    <article class="core-value-card">
+                        <div class="core-value-image">
+                            <img :src="coreValueImages.growth" alt="Colleagues learning and working together"
+                                loading="lazy" />
+                            <span class="core-value-number">05</span>
                         </div>
 
-                        <h3>
-                            Fun team events
-                        </h3>
+                        <div class="core-value-content">
+                            <div class="core-value-icon">
+                                <i class="bi bi-graph-up-arrow"></i>
+                            </div>
 
-                        <p>
-                            Regular activities and events that bring
-                            our teams closer.
-                        </p>
+                            <h3>Growth &amp; Learning</h3>
 
-                    </div>
+                            <p>
+                                We keep learning, mentor one another and create opportunities
+                                for people to develop their skills and careers.
+                            </p>
+                        </div>
+                    </article>
 
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-top">
-                            <span>06</span>
-                            <div class="benefit-icon">↑</div>
+                    <!-- Value 06 -->
+                    <article class="core-value-card">
+                        <div class="core-value-image">
+                            <img :src="coreValueImages.inclusion" alt="Indian workplace colleagues working together"
+                                loading="lazy" />
+                            <span class="core-value-number">06</span>
                         </div>
 
-                        <h3>
-                            Professional growth budget
-                        </h3>
+                        <div class="core-value-content">
+                            <div class="core-value-icon">
+                                <i class="bi bi-heart"></i>
+                            </div>
 
-                        <p>
-                            Opportunities and resources to continuously
-                            develop your professional skills.
-                        </p>
+                            <h3>Respect &amp; Inclusion</h3>
 
-                    </div>
-
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-top">
-                            <span>07</span>
-                            <div class="benefit-icon">☀</div>
+                            <p>
+                                We value every voice and create an environment where people
+                                feel respected, supported and confident to contribute.
+                            </p>
                         </div>
-
-                        <h3>
-                            Annual Event & Rainy Picnic
-                        </h3>
-
-                        <p>
-                            Special occasions where our entire team
-                            comes together and celebrates.
-                        </p>
-
-                    </div>
-
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-top">
-                            <span>08</span>
-                            <div class="benefit-icon">₹</div>
-                        </div>
-
-                        <h3>
-                            Competitive salary
-                        </h3>
-
-                        <p>
-                            Competitive compensation that recognizes
-                            contribution and experience.
-                        </p>
-
-                    </div>
-
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-top">
-                            <span>09</span>
-                            <div class="benefit-icon">↗</div>
-                        </div>
-
-                        <h3>
-                            Employee referral bonus
-                        </h3>
-
-                        <p>
-                            Get rewarded when talented professionals
-                            join the UniteCore family.
-                        </p>
-
-                    </div>
-
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-top">
-                            <span>10</span>
-                            <div class="benefit-icon">★</div>
-                        </div>
-
-                        <h3>
-                            Birthdays celebration
-                        </h3>
-
-                        <p>
-                            We celebrate the people who make UniteCore
-                            what it is.
-                        </p>
-
-                    </div>
-
+                    </article>
                 </div>
-
             </div>
-
         </section>
 
+        <!-- ==================== CAREER VIDEO ==================== -->
+        <section class="career-video-section">
+            <div class="section-wrap">
+                <div class="career-video-heading">
+                    <div class="section-kicker">03 / OUR CULTURE</div>
 
-        <!-- =====================================================
-             CURRENT OPENINGS
-        ====================================================== -->
-
-        <section id="career-section" class="openings-section section-white">
-
-            <div class="careers-container">
-
-                <div class="openings-header">
-
-                    <div>
-
-                        <div class="section-label">
-                            CAREER OPPORTUNITIES
-                        </div>
-
-                        <h2>
-                            Current
-                            <span>Openings</span>
-                        </h2>
-
-                    </div>
-
-                    <p>
-                        Interested in joining UniteCore?
-                        Explore opportunities and become part of
-                        our growing team.
-                    </p>
-
+                    <h2>
+                        More than a workplace.<br />
+                        <em>A place to belong.</em>
+                    </h2>
                 </div>
 
+                <div class="career-video">
+                    <video controls playsinline preload="metadata">
+                        <source src="../assets/Career-Page.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
 
-                <div class="opening-card">
+        <!-- ==================== BENEFITS ==================== -->
+        <section class="benefits-section">
+            <div class="section-wrap">
+                <div class="section-heading benefits-heading">
+                    <div class="section-kicker">04 / WHY UNITeCORE</div>
 
-                    <div class="opening-left">
+                    <h2>
+                        Benefits that help<br />
+                        <em>you move forward.</em>
+                    </h2>
 
-                        <div class="opening-tag">
-                            OPEN POSITION
+                    <p>
+                        We want our people to have the support, flexibility and environment
+                        they need to do meaningful work and build a rewarding career.
+                    </p>
+                </div>
+
+                <div class="benefits-grid">
+                    <article class="benefit-card">
+                        <span class="benefit-number">01</span>
+                        <div class="benefit-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h3>Career Growth</h3>
+                        <p>
+                            Opportunities to learn, take ownership and grow into bigger
+                            responsibilities.
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <span class="benefit-number">02</span>
+                        <div class="benefit-icon">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+                        <h3>Learning &amp; Development</h3>
+                        <p>
+                            Continuous learning through hands-on experience, knowledge
+                            sharing and mentoring.
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <span class="benefit-number">03</span>
+                        <div class="benefit-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h3>Collaborative Culture</h3>
+                        <p>
+                            Work alongside talented people who believe in teamwork and
+                            knowledge sharing.
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <span class="benefit-number">04</span>
+                        <div class="benefit-icon">
+                            <i class="bi bi-lightning-charge"></i>
+                        </div>
+                        <h3>Meaningful Work</h3>
+                        <p>
+                            Work on technology solutions that solve real business challenges
+                            for customers.
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <span class="benefit-number">05</span>
+                        <div class="benefit-icon">
+                            <i class="bi bi-person-workspace"></i>
+                        </div>
+                        <h3>Work Environment</h3>
+                        <p>
+                            A professional and supportive environment where ideas and
+                            initiative are encouraged.
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <span class="benefit-number">06</span>
+                        <div class="benefit-icon">
+                            <i class="bi bi-award"></i>
+                        </div>
+                        <h3>Recognition</h3>
+                        <p>
+                            We appreciate meaningful contributions and celebrate individual
+                            and team achievements.
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <span class="benefit-number">07</span>
+                        <div class="benefit-icon">
+                            <i class="bi bi-chat-square-heart"></i>
+                        </div>
+                        <h3>Open Communication</h3>
+                        <p>
+                            An environment where employees can share ideas, feedback and
+                            perspectives openly.
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <span class="benefit-number">08</span>
+                        <div class="benefit-icon">
+                            <i class="bi bi-globe2"></i>
+                        </div>
+                        <h3>Technology Exposure</h3>
+                        <p>
+                            Exposure to modern technologies, platforms and diverse enterprise
+                            requirements.
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <span class="benefit-number">09</span>
+                        <div class="benefit-icon">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>
+                            Space to experiment, solve problems creatively and contribute
+                            new ideas.
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <span class="benefit-number">10</span>
+                        <div class="benefit-icon">
+                            <i class="bi bi-house-heart"></i>
+                        </div>
+                        <h3>People First</h3>
+                        <p>
+                            We believe that strong teams are built through respect,
+                            inclusion and genuine support.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CURRENT OPENINGS ==================== -->
+        <section class="openings-section" id="openings">
+            <div class="section-wrap">
+                <div class="section-heading openings-heading">
+                    <div class="section-kicker">05 / OPEN POSITIONS</div>
+
+                    <h2>
+                        Find your next<br />
+                        <em>opportunity.</em>
+                    </h2>
+
+                    <p>
+                        Explore opportunities at UniteCore and take the next step in your
+                        professional journey.
+                    </p>
+                </div>
+
+                <div class="openings-list">
+                    <article class="opening-card">
+                        <div class="opening-info">
+                            <span class="opening-type">FULL TIME</span>
+                            <h3>Frontend Developer</h3>
+                            <p>
+                                Build modern, responsive and high-performance web experiences
+                                using contemporary frontend technologies.
+                            </p>
                         </div>
 
-                        <div class="opening-title-row">
+                        <div class="opening-meta">
+                            <span>
+                                <i class="bi bi-geo-alt"></i>
+                                Pune
+                            </span>
 
-                            <div class="opening-icon">
-                                +
+                            <span>
+                                <i class="bi bi-briefcase"></i>
+                                Engineering
+                            </span>
+                        </div>
+
+                        <a href="#application" class="opening-btn">
+                            Apply Now
+
+                        </a>
+                    </article>
+
+                    <article class="opening-card">
+                        <div class="opening-info">
+                            <span class="opening-type">FULL TIME</span>
+                            <h3>Business Development Executive</h3>
+                            <p>
+                                Build strong customer relationships and identify opportunities
+                                to create long-term business value.
+                            </p>
+                        </div>
+
+                        <div class="opening-meta">
+                            <span>
+                                <i class="bi bi-geo-alt"></i>
+                                Pune
+                            </span>
+
+                            <span>
+                                <i class="bi bi-briefcase"></i>
+                                Business Development
+                            </span>
+                        </div>
+
+                        <a href="#application" class="opening-btn">
+                            Apply Now
+
+                        </a>
+                    </article>
+
+                    <article class="opening-card">
+                        <div class="opening-info">
+                            <span class="opening-type">FULL TIME</span>
+                            <h3>IT Support Engineer</h3>
+                            <p>
+                                Support enterprise technology environments and help customers
+                                maintain secure and reliable IT operations.
+                            </p>
+                        </div>
+
+                        <div class="opening-meta">
+                            <span>
+                                <i class="bi bi-geo-alt"></i>
+                                Pune
+                            </span>
+
+                            <span>
+                                <i class="bi bi-briefcase"></i>
+                                IT Operations
+                            </span>
+                        </div>
+
+                        <a href="#application" class="opening-btn">
+                            Apply Now
+
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== EMPLOYEE STORIES ==================== -->
+        <section class="testimonials-section">
+            <div class="section-wrap">
+                <div class="section-heading testimonials-heading">
+                    <div class="section-kicker">06 / EMPLOYEE STORIES</div>
+
+                    <h2>
+                        Hear it from<br />
+                        <em>our people.</em>
+                    </h2>
+
+                    <p>
+                        Every career journey is different. Here are a few stories from
+                        people who are part of the UniteCore journey.
+                    </p>
+                </div>
+
+                <div class="testimonial-grid">
+                    <article class="testimonial-card">
+                        <div class="testimonial-top">
+                            <div class="testimonial-image">
+                                <img :src="poojaImage" alt="Pooja Sanas" />
                             </div>
 
                             <div>
-
-                                <h3>
-                                    Build your next chapter
-                                    with UniteCore
-                                </h3>
-
+                                <h3>Pooja Sanas</h3>
+                                <span>Account &amp; Finance</span>
                             </div>
+                        </div>
 
+                        <div class="quote-icon">
+                            <i class="bi bi-quote"></i>
                         </div>
 
                         <p>
-                            We are always interested in connecting with
-                            talented professionals who are passionate
-                            about technology, innovation and customer
-                            success.
+                            UniteCore has given me the opportunity to learn, take
+                            responsibility and grow with the organisation.
                         </p>
+                    </article>
 
-                    </div>
-
-
-                    <div class="opening-right">
-
-                        <div class="opening-details">
-
-                            <div class="opening-detail">
-
-                                <span>Location</span>
-
-                                <strong>
-                                    Navi Mumbai
-                                </strong>
-
+                    <article class="testimonial-card">
+                        <div class="testimonial-top">
+                            <div class="testimonial-image">
+                                <img :src="girishImage" alt="Girish Rane" />
                             </div>
 
-
-                            <div class="opening-detail">
-
-                                <span>Experience</span>
-
-                                <strong>
-                                    As per position
-                                </strong>
-
+                            <div>
+                                <h3>Girish Rane</h3>
+                                <span>Head Of Operational Support</span>
                             </div>
-
-
-                            <div class="opening-detail">
-
-                                <span>Work Mode</span>
-
-                                <strong>
-                                    Work From Office
-                                </strong>
-
-                            </div>
-
                         </div>
 
+                        <div class="quote-icon">
+                            <i class="bi bi-quote"></i>
+                        </div>
 
-                        <a href="#application-section" class="apply-btn">
-                            <span>Apply Now</span>
-                            <strong>↗</strong>
-                        </a>
+                        <p>
+                            The culture encourages ownership and teamwork. Every challenge
+                            becomes an opportunity to learn something new.
+                        </p>
+                    </article>
 
-                    </div>
+                    <article class="testimonial-card">
+                        <div class="testimonial-top">
+                            <div class="testimonial-image">
+                                <img :src="suhasImage" alt="Suhas Kamble" />
+                            </div>
 
+                            <div>
+                                <h3>Suhas Kamble</h3>
+                                <span>Team Member</span>
+                            </div>
+                        </div>
+
+                        <div class="quote-icon">
+                            <i class="bi bi-quote"></i>
+                        </div>
+
+                        <p>
+                            Working with a supportive team and getting exposure to different
+                            technologies has made the journey rewarding.
+                        </p>
+                    </article>
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- =====================================================
-             TESTIMONIALS
-        ====================================================== -->
-
-        <section class="testimonials-section section-gray">
-
-            <div class="careers-container">
-
-                <div class="section-heading">
-
-                    <div class="section-label">
-                        EMPLOYEE STORIES
-                    </div>
-
-                    <h2>
-                        Here is what our
-                        <span>employees are saying</span>
-                    </h2>
-
-                    <p>
-                        About their experience at UniteCore.
-                    </p>
-
-                </div>
-
-
-                <div class="testimonial-grid">
-
-                    <!-- 01 -->
-
-                    <article class="testimonial-card">
-
-                        <div class="testimonial-header">
-
-                            <div class="quote-mark">
-                                “
-                            </div>
-
-                            <div class="testimonial-stars">
-                                ★★★★★
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            It was a very good experience
-                        </h3>
-
-                        <p>
-                            The work environment at UniteCore is
-                            incredibly positive and collaborative.
-                            Everyone is supportive and willing to help
-                            each other succeed. It feels like a family.
-                            I appreciate the open communication and
-                            transparency at UniteCore. Leadership is
-                            accessible and genuinely cares about
-                            employee feedback.
-                        </p>
-
-
-                        <div class="testimonial-author">
-
-                            <div class="author-image">
-
-                                <img :src="careerImage('career-pooja.jpg')" alt="Pooja Sanas" />
-
-                            </div>
-
-                            <div class="author-info">
-
-                                <strong>
-                                    Pooja Sanas
-                                </strong>
-
-                                <span>
-                                    UniteCore Private Limited
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 02 -->
-
-                    <article class="testimonial-card">
-
-                        <div class="testimonial-header">
-
-                            <div class="quote-mark">
-                                “
-                            </div>
-
-                            <div class="testimonial-stars">
-                                ★★★★★
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Amazing experience
-                        </h3>
-
-                        <p>
-                            Celebrating three years at UniteCore has
-                            been a deeply rewarding experience. The
-                            innovative projects, supportive team and
-                            opportunities for growth have made this
-                            journey truly fulfilling. I'm grateful for
-                            the chance to contribute to our shared
-                            success and am excited about the future we
-                            continue to build together.
-                        </p>
-
-
-                        <div class="testimonial-author">
-
-                            <div class="author-image">
-
-                                <img :src="careerImage('career-girish.jpg')" alt="Girish Rane" />
-
-                            </div>
-
-                            <div class="author-info">
-
-                                <strong>
-                                    Girish Rane
-                                </strong>
-
-                                <span>
-                                    UniteCore Private Limited
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 03 -->
-
-                    <article class="testimonial-card">
-
-                        <div class="testimonial-header">
-
-                            <div class="quote-mark">
-                                “
-                            </div>
-
-                            <div class="testimonial-stars">
-                                ★★★★★
-                            </div>
-
-                        </div>
-
-                        <h3>
-                            Supportive Team
-                        </h3>
-
-                        <p>
-                            My journey at UniteCore over the past
-                            9 years has been marked by significant
-                            growth and continuous learning. I've
-                            consistently been provided opportunities
-                            to expand my skillset and take on new
-                            challenges. The company fosters a culture
-                            of development through training,
-                            mentorship and cross-functional projects.
-                        </p>
-
-
-                        <div class="testimonial-author">
-
-                            <div class="author-image">
-
-                                <img :src="careerImage('career-suhas.jpg')" alt="Suhas Kamble" />
-
-                            </div>
-
-                            <div class="author-info">
-
-                                <strong>
-                                    Suhas Kamble
-                                </strong>
-
-                                <span>
-                                    UniteCore Private Limited
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             CAREER APPLICATION
-        ====================================================== -->
-
-        <section id="application-section" class="application-section section-white">
-
-            <div class="application-bg-circle"></div>
-
-            <div class="careers-container">
-
-                <div class="application-heading">
-
-                    <div class="section-label">
-                        CONTACT INFORMATION
-                    </div>
-
-                    <h2>
-                        Interested in joining
-                        <span>our team?</span>
-                    </h2>
-
-                    <p>
-                        Reach out to us for current job openings and
-                        opportunities. Tell us a little about yourself
-                        and upload your resume. Our team will get in touch
-                        with you when a suitable opportunity is available.
-                    </p>
-
-                </div>
-
-
+        <!-- ==================== APPLICATION ==================== -->
+        <section class="application-section" id="application">
+            <div class="section-wrap">
                 <div class="application-card">
+                    <div class="application-copy">
+                        <div class="section-kicker">07 / JOIN UNITeCORE</div>
 
-                    <!-- LEFT -->
+                        <h2>
+                            Don't see the<br />
+                            <em>right role?</em>
+                        </h2>
 
-                    <div class="application-info">
-
-                        <div class="info-top">
-
-                            <span class="info-number">
-                                01
-                            </span>
-
-                            <span class="info-label">
-                                JOIN UNITECORE
-                            </span>
-
-                        </div>
-
-
-                        <h3>
-                            Let's build the
-                            <strong>future together.</strong>
-                        </h3>
-
-
-                        <p class="info-description">
-                            At UniteCore, we believe that talented people
-                            are the foundation of great technology.
-                            Share your profile with us and explore
-                            opportunities to grow with our team.
+                        <p>
+                            We are always interested in meeting talented and motivated
+                            people. Share your profile with us and tell us how you can
+                            contribute to the UniteCore journey.
                         </p>
 
-
-                        <div class="application-contact">
-
-                            <div class="application-contact-item">
-
-                                <div class="contact-icon">
-                                    @
-                                </div>
-
-                                <div>
-
-                                    <span>
-                                        Email us
-                                    </span>
-
-                                    <a href="mailto:support@unitecore.in">
-                                        support@unitecore.in
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="application-contact-item">
-
-                                <div class="contact-icon">
-                                    ↗
-                                </div>
-
-                                <div>
-
-                                    <span>
-                                        Call us
-                                    </span>
-
-                                    <a href="tel:02249744609">
-                                        +91 22-49744609 / 10 / 12
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="application-contact-item">
-
-                                <div class="contact-icon">
-                                    ◉
-                                </div>
-
-                                <div>
-
-                                    <span>
-                                        Our office
-                                    </span>
-
-                                    <p>
-                                        406, Ellora Fiesta, Sector 11,
-                                        Sanpada, Navi Mumbai - 400705
-                                    </p>
-
-                                </div>
-
-                            </div>
-
+                        <div class="application-note">
+                            <i class="bi bi-arrow-right"></i>
+                            <span>
+                                Send us your profile and our team will get in touch when a
+                                suitable opportunity becomes available.
+                            </span>
                         </div>
-
-
-                        <div class="info-bottom-line">
-                            PEOPLE • TECHNOLOGY • GROWTH
-                        </div>
-
                     </div>
 
+                    <form class="career-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="career-name">Full Name</label>
+                                <input id="career-name" type="text" placeholder="Enter your full name" />
+                            </div>
 
-                    <!-- RIGHT FORM -->
-
-                    <form class="career-form" @submit.prevent>
-
-                        <div class="form-header">
-
-                            <span>
-                                CAREER APPLICATION
-                            </span>
-
-                            <h3>
-                                Tell us about yourself
-                            </h3>
-
-                            <p>
-                                Fill in the details below and submit
-                                your resume.
-                            </p>
-
+                            <div class="form-group">
+                                <label for="career-email">Email Address</label>
+                                <input id="career-email" type="email" placeholder="Enter your email address" />
+                            </div>
                         </div>
-
-
-                        <!-- NAME + EMAIL -->
 
                         <div class="form-row">
-
-                            <div class="form-field">
-
-                                <label>
-                                    Full Name
-                                    <em>*</em>
-                                </label>
-
-                                <div class="input-wrapper">
-
-                                    <span class="input-icon">
-                                        👤
-                                    </span>
-
-                                    <input type="text" name="name" placeholder="Enter your full name" required />
-
-                                </div>
-
+                            <div class="form-group">
+                                <label for="career-phone">Phone Number</label>
+                                <input id="career-phone" type="tel" placeholder="Enter your phone number" />
                             </div>
 
-
-                            <div class="form-field">
-
-                                <label>
-                                    Email Address
-                                    <em>*</em>
-                                </label>
-
-                                <div class="input-wrapper">
-
-                                    <span class="input-icon">
-                                        @
-                                    </span>
-
-                                    <input type="email" name="email" placeholder="you@example.com" required />
-
-                                </div>
-
+                            <div class="form-group">
+                                <label for="career-role">Interested Role</label>
+                                <select id="career-role">
+                                    <option value="">Select a role</option>
+                                    <option value="frontend-developer">
+                                        Frontend Developer
+                                    </option>
+                                    <option value="business-development">
+                                        Business Development Executive
+                                    </option>
+                                    <option value="it-support">
+                                        IT Support Engineer
+                                    </option>
+                                    <option value="other">Other</option>
+                                </select>
                             </div>
-
                         </div>
 
-
-                        <!-- PHONE + POSITION -->
-
-                        <div class="form-row">
-
-                            <div class="form-field">
-
-                                <label>
-                                    Phone Number
-                                    <em>*</em>
-                                </label>
-
-                                <div class="input-wrapper">
-
-                                    <span class="input-icon">
-                                        ☎
-                                    </span>
-
-                                    <input type="tel" name="phone" placeholder="+91 98765 43210" required />
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="form-field">
-
-                                <label>
-                                    Position You Applied
-                                    <em>*</em>
-                                </label>
-
-                                <div class="input-wrapper">
-
-                                    <span class="input-icon">
-                                        ◈
-                                    </span>
-
-                                    <select name="position" required>
-
-                                        <option value="">
-                                            Select a position
-                                        </option>
-
-                                        <option value="IT Consultancy">
-                                            IT Consultancy
-                                        </option>
-
-                                        <option value="Cloud Solutions">
-                                            Cloud Solutions
-                                        </option>
-
-                                        <option value="Infrastructure">
-                                            Infrastructure
-                                        </option>
-
-                                        <option value="Network & Security">
-                                            Network & Security
-                                        </option>
-
-                                        <option value="System Administration">
-                                            System Administration
-                                        </option>
-
-                                        <option value="Sales & Marketing">
-                                            Sales & Marketing
-                                        </option>
-
-                                        <option value="Other">
-                                            Other
-                                        </option>
-
-                                    </select>
-
-                                </div>
-
-                            </div>
-
+                        <div class="form-group">
+                            <label for="career-message">Message</label>
+                            <textarea id="career-message" rows="5"
+                                placeholder="Tell us a little about yourself..."></textarea>
                         </div>
 
+                        <div class="form-group">
+                            <label for="career-resume">Resume</label>
 
-                        <!-- EXPERIENCE + LOCATION -->
+                            <div class="resume-input">
+                                <input id="career-resume" type="file" accept=".pdf,.doc,.docx" />
 
-                        <div class="form-row">
-
-                            <div class="form-field">
-
-                                <label>
-                                    Experience
-                                </label>
-
-                                <div class="input-wrapper">
-
-                                    <span class="input-icon">
-                                        ◎
-                                    </span>
-
-                                    <select name="experience">
-
-                                        <option value="">
-                                            Select experience
-                                        </option>
-
-                                        <option value="Fresher">
-                                            Fresher
-                                        </option>
-
-                                        <option value="1-2 Years">
-                                            1 - 2 Years
-                                        </option>
-
-                                        <option value="3-5 Years">
-                                            3 - 5 Years
-                                        </option>
-
-                                        <option value="6-10 Years">
-                                            6 - 10 Years
-                                        </option>
-
-                                        <option value="10+ Years">
-                                            10+ Years
-                                        </option>
-
-                                    </select>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="form-field">
-
-                                <label>
-                                    Current Location
-                                </label>
-
-                                <div class="input-wrapper">
-
-                                    <span class="input-icon">
-                                        ◉
-                                    </span>
-
-                                    <input type="text" name="location" placeholder="e.g. Navi Mumbai" />
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- MESSAGE -->
-
-                        <div class="form-field">
-
-                            <label>
-                                Message
-                            </label>
-
-                            <div class="input-wrapper textarea-wrapper">
-
-                                <span class="input-icon textarea-icon">
-                                    ✦
-                                </span>
-
-                                <textarea name="message" rows="4"
-                                    placeholder="Tell us briefly about yourself, your skills or the role you're interested in..."></textarea>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- RESUME -->
-
-                        <div class="form-field">
-
-                            <label>
-                                Resume
-                                <em>*</em>
-                            </label>
-
-                            <div class="resume-upload">
-
-                                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required />
-
-                                <label for="resume" class="resume-label">
-
-                                    <div class="upload-icon">
-                                        ↑
-                                    </div>
-
-                                    <div class="upload-content">
-
-                                        <strong>
-                                            Upload your resume
-                                        </strong>
-
-                                        <span>
-                                            PDF, DOC or DOCX · Max 5MB
-                                        </span>
-
-                                    </div>
-
-                                    <div class="browse-btn">
-                                        Browse
-                                    </div>
-
-                                </label>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- CONSENT -->
-
-                        <div class="form-consent">
-
-                            <label>
-
-                                <input type="checkbox" required />
+                                <i class="bi bi-cloud-arrow-up"></i>
 
                                 <span>
-                                    I agree to the processing of my
-                                    information for recruitment purposes.
+                                    Upload your resume
+                                    <small>PDF, DOC or DOCX</small>
                                 </span>
-
-                            </label>
-
+                            </div>
                         </div>
 
-
-                        <!-- SUBMIT -->
-
-                        <button type="submit" class="application-submit">
-
-                            <span>
-                                Submit Application
-                            </span>
-
-                            <strong>
-                                ↗
-                            </strong>
+                        <button type="submit" class="career-submit">
+                            Submit Application
 
                         </button>
-
                     </form>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- =====================================================
-             FOOTER
-        ====================================================== -->
-
         <FooterSection />
-
     </main>
 </template>
 
-
 <script>
-import HeaderSection from "@/components/HeaderSection.vue";
-import FooterSection from "@/components/FooterSection.vue";
+import HeaderSection from "../components/HeaderSection.vue";
+import FooterSection from "../components/FooterSection.vue";
+
+import poojaImage from "../assets/pooja.jpeg";
+import girishImage from "../assets/girish.jpeg";
+import suhasImage from "../assets/suhas.jpg";
+import collaborationImage from "../assets/collaboration.jpg";
+import growthImage from "../assets/growth.jpg";
+import inclusionImage from "../assets/inclusion.jpg";
 
 export default {
-
     name: "CareersPage",
 
     components: {
         HeaderSection,
-        FooterSection
+        FooterSection,
+    },
+
+    data() {
+        return {
+            poojaImage,
+            girishImage,
+            suhasImage,
+
+            /*
+             * Core Values imagery
+             *
+             * These are Pexels images and are intentionally kept as
+             * external image URLs, matching the existing careerImage()
+             * approach used elsewhere on this page.
+             */
+            coreValueImages: {
+                integrity:
+                    "https://images.pexels.com/photos/4308105/pexels-photo-4308105.jpeg?auto=compress&cs=tinysrgb&w=1200",
+
+                collaboration: collaborationImage,
+
+                innovation:
+                    "https://images.pexels.com/photos/7793688/pexels-photo-7793688.jpeg?auto=compress&cs=tinysrgb&w=1200",
+
+                ownership:
+                    "https://images.pexels.com/photos/31786661/pexels-photo-31786661.jpeg?auto=compress&cs=tinysrgb&w=1200",
+
+                growth: growthImage,
+
+                inclusion: inclusionImage,
+            },
+        };
     },
 
     methods: {
-
         careerImage(fileName) {
+            const images = {
+                "career-hero.jpg":
+                    "https://images.pexels.com/photos/6804068/pexels-photo-6804068.jpeg?auto=compress&cs=tinysrgb&w=1800",
 
-            return `${process.env.BASE_URL}images/career/${fileName}`;
+                "career-team-1.jpg":
+                    "https://images.pexels.com/photos/7988742/pexels-photo-7988742.jpeg?auto=compress&cs=tinysrgb&w=1400",
 
-        }
+                "career-team-2.jpg":
+                    "https://images.pexels.com/photos/7988079/pexels-photo-7988079.jpeg?auto=compress&cs=tinysrgb&w=1400",
 
-    }
+                "career-team-3.jpg":
+                    "https://images.pexels.com/photos/6804083/pexels-photo-6804083.jpeg?auto=compress&cs=tinysrgb&w=1400",
 
+                "career-office.jpg":
+                    "https://images.pexels.com/photos/12899167/pexels-photo-12899167.jpeg?auto=compress&cs=tinysrgb&w=1600",
+
+                "career-team-4.jpg":
+                    "https://images.pexels.com/photos/7988747/pexels-photo-7988747.jpeg?auto=compress&cs=tinysrgb&w=1400",
+
+                "career-team-5.jpg":
+                    "https://images.pexels.com/photos/12899153/pexels-photo-12899153.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            };
+
+            return images[fileName] || images["career-hero.jpg"];
+        },
+    },
 };
 </script>
 
-
 <style scoped>
-/* ============================================================
-   DESIGN TOKENS
-============================================================ */
+/* =========================================================
+   ROOT
+========================================================= */
 
 .careers-page {
-
     --green: #102e27;
     --green-dark: #0b2520;
     --green-deep: #071c18;
-
     --green-light: #edf4f1;
     --green-soft: #f5f8f6;
-
     --ink: #08090b;
     --dark: #111714;
-
     --white: #ffffff;
-
     --muted: #68736d;
     --line: #dce5e1;
-
-    width: 100%;
-    overflow: hidden;
+    --orange: #f88c18;
+    --orange-light: #ffb15a;
 
     background: var(--white);
     color: var(--ink);
-
-    font-family: "Inter", sans-serif;
+    overflow: hidden;
 }
-
-
-/* ============================================================
-   RESET
-============================================================ */
 
 .careers-page *,
 .careers-page *::before,
@@ -1301,1018 +803,574 @@ export default {
     box-sizing: border-box;
 }
 
-.careers-page h1,
-.careers-page h2,
-.careers-page h3,
-.careers-page p {
-    margin-top: 0;
-}
-
-.careers-page h1,
-.careers-page h2,
-.careers-page h3 {
-    font-family: "Space Grotesk", sans-serif;
-}
-
-.careers-container {
-
-    width: min(1200px, calc(100% - 48px));
-
+.section-wrap {
+    width: min(1180px, calc(100% - 48px));
     margin: 0 auto;
 }
 
+.section-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 
-/* ============================================================
-   SECTION BACKGROUNDS
-============================================================ */
-
-.section-white {
-    background: #ffffff;
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
 }
 
-.section-green {
-    background: var(--green-light);
+.section-heading {
+    max-width: 720px;
 }
 
+.section-heading h2,
+.core-values-intro h2,
+.career-video-heading h2,
+.application-copy h2 {
+    margin: 16px 0 22px;
+    font-size: clamp(42px, 5vw, 72px);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    font-weight: 800;
+}
 
-/* ============================================================
+.section-heading h2 em,
+.core-values-intro h2 em,
+.career-video-heading h2 em,
+.application-copy h2 em {
+    color: var(--green);
+    font-style: normal;
+}
+
+.section-heading>p,
+.core-values-intro>p {
+    max-width: 650px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* =========================================================
    HERO
-============================================================ */
+========================================================= */
 
 .careers-hero {
-
     position: relative;
+    min-height: 720px;
+    display: flex;
+    align-items: center;
+    isolation: isolate;
+    background: var(--green-deep);
+    overflow: hidden;
+}
 
-    min-height: 760px;
+.hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+
+    background-position: center;
+    background-size: cover;
+
+    transform: scale(1.02);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        linear-gradient(90deg,
+            rgba(7, 28, 24, 0.94) 0%,
+            rgba(7, 28, 24, 0.82) 38%,
+            rgba(7, 28, 24, 0.42) 72%,
+            rgba(7, 28, 24, 0.2) 100%),
+        linear-gradient(180deg,
+            rgba(7, 28, 24, 0.2),
+            rgba(7, 28, 24, 0.65));
+}
+
+.hero-content {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+    color: var(--white);
+    padding-top: 60px;
+}
+
+.hero-kicker {
+    display: inline-block;
+    margin-bottom: 20px;
+
+    color: var(--orange-light);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.hero-content h1 {
+    max-width: 820px;
+    margin: 0;
+
+    font-size: clamp(54px, 7vw, 96px);
+    line-height: 0.94;
+    letter-spacing: -0.055em;
+    font-weight: 800;
+}
+
+.hero-content h1 em {
+    color: var(--orange);
+    font-style: normal;
+}
+
+.hero-content p {
+    max-width: 600px;
+    margin: 30px 0 34px;
+
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.hero-btn,
+.opening-btn,
+.career-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    border: 0;
+    text-decoration: none;
+
+    background: var(--orange);
+    color: var(--white);
+
+    padding: 15px 22px;
+
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.hero-btn:hover,
+.opening-btn:hover,
+.career-submit:hover {
+    transform: translateY(-3px);
+    background: #ff9e2e;
+    box-shadow: 0 14px 30px rgba(248, 140, 24, 0.25);
+}
+
+.hero-scroll {
+    position: absolute;
+    right: 40px;
+    bottom: 32px;
 
     display: flex;
     align-items: center;
+    gap: 12px;
+
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.hero-scroll i {
+    color: var(--orange);
+    font-size: 17px;
+}
+
+/* =========================================================
+   LIFE
+========================================================= */
+
+.life-section {
+    padding: 120px 0;
+    background: var(--white);
+}
+
+.life-gallery {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr 0.7fr;
+    grid-auto-rows: 260px;
+    gap: 16px;
+
+    margin-top: 70px;
+}
+
+.gallery-item {
+    position: relative;
+    min-height: 260px;
+    overflow: hidden;
+    background: var(--green);
+}
+
+.gallery-item.gallery-large {
+    grid-row: span 2;
+}
+
+.gallery-item.gallery-wide {
+    grid-column: span 2;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+.gallery-item::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(180deg,
+            transparent 40%,
+            rgba(7, 28, 24, 0.8) 100%);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+    filter: saturate(1.08);
+}
+
+.gallery-item span {
+    position: absolute;
+    z-index: 2;
+    left: 20px;
+    bottom: 18px;
+
+    color: var(--white);
+
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   CORE VALUES
+========================================================= */
+
+.core-values-section {
+    position: relative;
+    padding: 125px 0;
+
+    background:
+        radial-gradient(circle at 90% 10%,
+            rgba(248, 140, 24, 0.08),
+            transparent 28%),
+        var(--green-soft);
+}
+
+.core-values-intro {
+    max-width: 760px;
+}
+
+.core-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+
+    margin-top: 65px;
+}
+
+.core-value-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background: var(--white);
+    border: 1px solid var(--line);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.core-value-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(248, 140, 24, 0.3);
+
+    box-shadow: 0 24px 55px rgba(7, 28, 24, 0.12);
+}
+
+.core-value-image {
+    position: relative;
+    height: 245px;
+    overflow: hidden;
+    background: var(--green-dark);
+}
+
+.core-value-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(180deg,
+            rgba(7, 28, 24, 0.02) 20%,
+            rgba(7, 28, 24, 0.55) 100%);
+}
+
+.core-value-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+.core-value-card:hover .core-value-image img {
+    transform: scale(1.06);
+    filter: saturate(1.08);
+}
+
+.core-value-number {
+    position: absolute;
+    z-index: 3;
+
+    top: 18px;
+    right: 18px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--orange);
+    color: var(--white);
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.core-value-content {
+    position: relative;
+
+    padding: 28px 28px 32px;
+}
+
+.core-value-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    background: var(--green-light);
+    color: var(--green);
+
+    font-size: 20px;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.core-value-card:hover .core-value-icon {
+    background: var(--orange);
+    color: var(--white);
+}
+
+.core-value-content h3 {
+    margin: 0 0 12px;
+
+    color: var(--green-dark);
+
+    font-size: 24px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.core-value-content p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+/* =========================================================
+   CAREER VIDEO
+========================================================= */
+
+.career-video-section {
+    padding: 125px 0;
+    background: var(--white);
+}
+
+.career-video-heading {
+    margin-bottom: 55px;
+}
+
+.career-video {
+    position: relative;
+
+    width: 100%;
 
     overflow: hidden;
 
     background: var(--green-deep);
 
-    color: var(--white);
+    box-shadow: 0 30px 70px rgba(7, 28, 24, 0.18);
 }
 
-
-.hero-background {
-
-    position: absolute;
-
-    inset: 0;
-}
-
-
-.hero-background img {
+.career-video video {
+    display: block;
 
     width: 100%;
-    height: 100%;
+    max-height: 680px;
 
     object-fit: cover;
-
-    object-position: center;
-
-    filter: saturate(0.72);
-
-    transform: scale(1.02);
 }
 
-
-.hero-overlay {
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(90deg,
-            rgba(16, 46, 39, 0.98) 0%,
-            rgba(16, 46, 39, 0.92) 30%,
-            rgba(16, 46, 39, 0.72) 58%,
-            rgba(16, 46, 39, 0.55) 100%);
-}
-
-
-.hero-grid {
-
-    position: absolute;
-
-    inset: 0;
-
-    opacity: 0.13;
-
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.10) 1px,
-            transparent 1px),
-        linear-gradient(90deg,
-            rgba(255, 255, 255, 0.10) 1px,
-            transparent 1px);
-
-    background-size: 80px 80px;
-}
-
-
-.hero-glow {
-
-    position: absolute;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    filter: blur(100px);
-}
-
-
-.hero-glow-one {
-
-    width: 420px;
-    height: 420px;
-
-    right: 3%;
-    top: 10%;
-
-    background: rgba(52, 105, 88, 0.25);
-}
-
-
-.hero-glow-two {
-
-    width: 280px;
-    height: 280px;
-
-    left: 35%;
-    bottom: -120px;
-
-    background: rgba(65, 120, 100, 0.16);
-}
-
-
-.hero-container {
-
-    position: relative;
-
-    z-index: 2;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 80px;
-}
-
-
-.hero-content {
-
-    max-width: 800px;
-}
-
-
-.hero-label,
-.section-label {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    color: var(--green);
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 0.20em;
-
-    text-transform: uppercase;
-}
-
-
-.hero-label {
-    color: #f5820b;
-}
-
-
-.hero-label::before,
-.section-label::before {
-
-    content: "";
-
-    width: 32px;
-    height: 2px;
-
-    background: currentColor;
-}
-
-
-.hero-content h1 {
-
-    margin: 25px 0 28px;
-
-    font-size: clamp(54px, 7vw, 92px);
-
-    line-height: 0.97;
-
-    letter-spacing: -0.055em;
-
-    font-weight: 700;
-}
-
-
-.hero-content h1 span {
-
-    display: block;
-
-    color: #f5820b;
-}
-
-
-.hero-description {
-
-    max-width: 740px;
-
-    margin-bottom: 18px;
-
-    color: rgba(255, 255, 255, 0.86);
-
-    font-size: 18px;
-
-    line-height: 1.75;
-}
-
-
-.hero-description.secondary {
-
-    max-width: 710px;
-
-    color: rgba(255, 255, 255, 0.60);
-
-    font-size: 14px;
-}
-
-
-.hero-actions {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-    margin-top: 38px;
-
-    flex-wrap: wrap;
-}
-
-
-/* ============================================================
-   BUTTONS
-============================================================ */
-
-.primary-btn,
-.secondary-btn,
-.apply-btn {
-
-    min-height: 56px;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 18px;
-
-    padding: 0 26px;
-
-    text-decoration: none;
-
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        color 0.3s ease,
-        border-color 0.3s ease;
-}
-
-
-.primary-btn {
-
-    background: var(--green);
-
-    color: var(--white);
-}
-
-
-.primary-btn span,
-.apply-btn span {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-width: 30px;
-
-    min-height: 30px;
-}
-
-
-.primary-btn:hover {
-
-    background: var(--green-dark);
-
-    color: var(--white);
-
-    transform: translateY(-3px);
-}
-
-
-.secondary-btn {
-
-    border: 1px solid rgba(255, 255, 255, 0.30);
-
-    color: var(--white);
-}
-
-
-.secondary-btn:hover {
-
-    border-color: #f5820b;
-
-    color: #f5820b;
-}
-
-
-/* ============================================================
-   HERO SIDE CARD
-============================================================ */
-
-.hero-side-card {
-
-    width: 190px;
-
-    flex-shrink: 0;
-
-    padding: 28px;
-
-    border-left: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-
-.hero-card-number {
-
-    color: #f5820b;
-
-    font-family: "JetBrains Mono", monospace;
-
-    font-size: 12px;
-}
-
-
-.hero-card-line {
-
-    width: 45px;
-    height: 1px;
-
-    margin: 25px 0;
-
-    background: #f5820b;
-}
-
-
-.hero-side-card p {
-
-    margin: 0;
-
-    color: rgba(255, 255, 255, 0.65);
-
-    font-size: 14px;
-
-    line-height: 1.7;
-}
-
-
-.hero-side-card strong {
-
-    display: block;
-
-    color: var(--white);
-}
-
-
-/* ============================================================
-   SECTION HEADINGS
-============================================================ */
-
-.section-heading {
-
-    max-width: 780px;
-
-    margin-bottom: 65px;
-}
-
-
-.section-heading.centered {
-
-    margin-left: auto;
-    margin-right: auto;
-
-    text-align: center;
-}
-
-
-.section-heading.centered .section-label {
-
-    justify-content: center;
-}
-
-
-.section-heading h2,
-.openings-header h2,
-.application-heading h2 {
-
-    margin: 20px 0 24px;
-
-    font-size: clamp(44px, 5vw, 68px);
-
-    line-height: 1;
-
-    letter-spacing: -0.05em;
-}
-
-
-.section-heading h2 span,
-.openings-header h2 span,
-.application-heading h2 span {
-
-    color: var(--green);
-}
-
-
-.section-heading p {
-
-    max-width: 720px;
-
-    margin-bottom: 0;
-
-    color: var(--muted);
-
-    font-size: 16px;
-
-    line-height: 1.8;
-}
-
-
-/* ============================================================
-   LIFE SECTION
-============================================================ */
-
-.life-section {
-
-    padding: 125px 0;
-
-    background: #ffffff;
-}
-
-
-.life-section .section-label {
-    color: var(--green);
-}
-
-
-.life-gallery {
-
-    display: grid;
-
-    grid-template-columns:
-        1.35fr 0.85fr 0.85fr;
-
-    grid-template-rows:
-        250px 250px 250px;
-
-    gap: 14px;
-}
-
-
-.life-image {
-
-    position: relative;
-
-    min-height: 0;
-
-    overflow: hidden;
-
-    background: #e2ebe6;
-}
-
-
-.life-large {
-    grid-row: span 2;
-}
-
-
-.life-wide {
-    grid-column: span 2;
-}
-
-
-.life-image img {
-
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition:
-        transform 0.7s ease,
-        filter 0.5s ease;
-}
-
-
-.life-image:hover img {
-
-    transform: scale(1.07);
-
-    filter: saturate(1.08);
-}
-
-
-.image-overlay {
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    padding: 22px;
-
-    background:
-        linear-gradient(transparent,
-            rgba(16, 46, 39, 0.90));
-
-    color: var(--white);
-}
-
-
-.image-overlay span {
-
-    color: #f5820b;
-
-    font-family: "JetBrains Mono", monospace;
-
-    font-size: 11px;
-}
-
-
-.image-overlay strong {
-    font-size: 14px;
-}
-
-
-/* ============================================================
+/* =========================================================
    BENEFITS
-============================================================ */
+========================================================= */
 
 .benefits-section {
-
     padding: 125px 0;
-
-    background: var(--green-light);
-
-    border-top: 1px solid var(--line);
-
-    border-bottom: 1px solid var(--line);
+    background: var(--green-soft);
 }
 
-
-.benefits-section .section-label {
-    color: var(--green);
+.benefits-heading {
+    margin-bottom: 60px;
 }
-
 
 .benefits-grid {
-
     display: grid;
-
-    grid-template-columns:
-        repeat(5, 1fr);
-
-    gap: 1px;
-
-    border: 1px solid var(--line);
-
-    background: var(--line);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
 }
 
-
 .benefit-card {
-
     position: relative;
 
     min-height: 280px;
 
-    padding: 30px;
+    padding: 28px 24px;
 
     background: var(--white);
+    border: 1px solid var(--line);
 
     transition:
         transform 0.3s ease,
-        background 0.3s ease,
-        color 0.3s ease;
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
-
 
 .benefit-card:hover {
-
-    z-index: 2;
-
-    background: var(--green);
-
-    color: var(--white);
-
     transform: translateY(-6px);
+
+    border-color: rgba(248, 140, 24, 0.3);
+
+    box-shadow: 0 20px 40px rgba(7, 28, 24, 0.1);
 }
 
+.benefit-number {
+    position: absolute;
+    top: 18px;
+    right: 18px;
 
-.benefit-top {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    justify-content: space-between;
-}
-
-
-.benefit-top>span {
-
-    color: var(--green);
-
-    font-family: "JetBrains Mono", monospace;
+    color: #bdc9c4;
 
     font-size: 11px;
-
-    font-weight: 700;
+    font-weight: 800;
 }
-
-
-.benefit-card:hover .benefit-top>span {
-    color: #f5820b;
-}
-
 
 .benefit-icon {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
     width: 48px;
     height: 48px;
 
-    border: 1px solid var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    margin-bottom: 28px;
+
+    background: var(--green-light);
     color: var(--green);
 
-    font-size: 21px;
+    font-size: 20px;
 }
-
-
-.benefit-card:hover .benefit-icon {
-
-    border-color: #f5820b;
-
-    color: #f5820b;
-}
-
 
 .benefit-card h3 {
+    margin: 0 0 12px;
 
-    margin: 65px 0 13px;
+    color: var(--green-dark);
 
     font-size: 18px;
-
-    line-height: 1.25;
+    line-height: 1.2;
 }
 
-
 .benefit-card p {
-
     margin: 0;
 
     color: var(--muted);
 
     font-size: 13px;
-
     line-height: 1.7;
 }
 
-
-.benefit-card:hover p {
-    color: rgba(255, 255, 255, 0.62);
-}
-
-
-/* ============================================================
+/* =========================================================
    OPENINGS
-============================================================ */
+========================================================= */
 
 .openings-section {
-
     padding: 125px 0;
-
-    background: #ffffff;
+    background: var(--white);
 }
 
-
-.openings-section .section-label {
-    color: var(--green);
+.openings-heading {
+    margin-bottom: 60px;
 }
 
-
-.openings-header {
-
+.openings-list {
     display: flex;
-
-    align-items: flex-end;
-
-    justify-content: space-between;
-
-    gap: 60px;
-
-    margin-bottom: 55px;
+    flex-direction: column;
+    gap: 16px;
 }
-
-
-.openings-header>p {
-
-    max-width: 430px;
-
-    margin: 0;
-
-    color: var(--muted);
-
-    font-size: 15px;
-
-    line-height: 1.8;
-}
-
 
 .opening-card {
-
     display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(200px, 0.8fr) auto;
+    align-items: center;
+    gap: 35px;
 
-    grid-template-columns:
-        1.5fr 0.9fr;
-
-    overflow: hidden;
+    padding: 32px;
 
     border: 1px solid var(--line);
-
-    background: var(--white);
-
-    box-shadow:
-        0 25px 70px rgba(16, 46, 39, 0.08);
-}
-
-
-.opening-left {
-    padding: 60px;
-}
-
-
-.opening-tag {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    margin-bottom: 30px;
-
-    padding: 9px 13px;
-
-    background:
-        rgba(16, 46, 39, 0.08);
-
-    color: var(--green);
-
-    font-family: "JetBrains Mono", monospace;
-
-    font-size: 10px;
-
-    letter-spacing: 0.12em;
-}
-
-
-.opening-title-row {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 20px;
-}
-
-
-.opening-icon {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex: 0 0 48px;
-
-    width: 48px;
-    height: 48px;
-
-    border: 1px solid var(--green);
-
-    color: var(--green);
-
-    font-size: 25px;
-}
-
-
-.opening-left h3 {
-
-    margin: 0 0 22px;
-
-    max-width: 560px;
-
-    font-size: 40px;
-
-    line-height: 1.08;
-
-    letter-spacing: -0.04em;
-}
-
-
-.opening-left>p {
-
-    max-width: 650px;
-
-    margin: 0;
-
-    color: var(--muted);
-
-    font-size: 15px;
-
-    line-height: 1.8;
-}
-
-
-.opening-right {
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    gap: 30px;
-
-    padding: 50px;
-
-    background: var(--green);
-
-    color: var(--white);
-}
-
-
-.opening-details {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 22px;
-}
-
-
-.opening-detail {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 6px;
-}
-
-
-.opening-detail span {
-
-    color: #f5820b;
-
-    font-family: "JetBrains Mono", monospace;
-
-    font-size: 9px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.13em;
-}
-
-
-.opening-detail strong {
-
-    color: var(--white);
-
-    font-size: 14px;
-}
-
-
-.apply-btn {
-
-    width: 100%;
-
-    background: #ffffff;
-
-    color: var(--green);
-}
-
-
-.apply-btn:hover {
-
-    background: var(--green-dark);
-
-    color: var(--white);
-
-    transform: translateY(-3px);
-}
-
-
-/* ============================================================
-   TESTIMONIALS
-============================================================ */
-
-.testimonials-section {
-
-    padding: 125px 0;
-
-    background: var(--green-soft);
-
-    border-top: 1px solid var(--line);
-
-    border-bottom: 1px solid var(--line);
-}
-
-
-.testimonials-section .section-label {
-    color: var(--green);
-}
-
-
-.testimonial-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 18px;
-}
-
-
-.testimonial-card {
-
-    position: relative;
-
-    display: flex;
-
-    flex-direction: column;
-
-    min-height: 560px;
-
-    padding: 42px;
-
-    border: 1px solid var(--line);
-
     background: var(--white);
 
     transition:
@@ -2321,1345 +1379,586 @@ export default {
         box-shadow 0.3s ease;
 }
 
+.opening-card:hover {
+    transform: translateX(5px);
 
-.testimonial-card:hover {
+    border-color: rgba(248, 140, 24, 0.4);
 
-    border-color: var(--green);
-
-    transform: translateY(-6px);
-
-    box-shadow:
-        0 20px 50px rgba(16, 46, 39, 0.10);
+    box-shadow: 0 18px 40px rgba(7, 28, 24, 0.08);
 }
 
+.opening-type {
+    display: inline-block;
+    margin-bottom: 12px;
 
-.testimonial-header {
+    color: var(--orange);
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
 }
 
+.opening-info h3 {
+    margin: 0 0 10px;
 
-.quote-mark {
+    color: var(--green-dark);
 
-    color: rgba(16, 46, 39, 0.16);
-
-    font-family: Georgia, serif;
-
-    font-size: 90px;
-
-    line-height: 0.5;
+    font-size: 24px;
+    letter-spacing: -0.02em;
 }
 
-
-.testimonial-stars {
-
-    color: var(--green);
-
-    letter-spacing: 3px;
-
-    font-size: 11px;
-}
-
-
-.testimonial-card h3 {
-
-    margin: 35px 0 18px;
-
-    max-width: 290px;
-
-    font-size: 23px;
-
-    line-height: 1.2;
-}
-
-
-.testimonial-card>p {
-
-    flex: 1;
-
+.opening-info p {
+    max-width: 620px;
     margin: 0;
 
     color: var(--muted);
 
-    font-size: 13px;
-
-    line-height: 1.85;
-}
-
-
-.testimonial-author {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-    padding-top: 25px;
-
-    margin-top: 30px;
-
-    border-top: 1px solid var(--line);
-}
-
-
-.author-image {
-
-    flex: 0 0 54px;
-
-    width: 54px;
-    height: 54px;
-
-    overflow: hidden;
-
-    border-radius: 50%;
-
-    background: #e6eee9;
-
-    border:
-        2px solid rgba(16, 46, 39, 0.25);
-}
-
-
-.author-image img {
-
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-}
-
-
-.author-info strong,
-.author-info span {
-    display: block;
-}
-
-
-.author-info strong {
     font-size: 14px;
+    line-height: 1.65;
 }
 
-
-.author-info span {
-
-    margin-top: 5px;
+.opening-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 
     color: var(--muted);
 
-    font-size: 10px;
+    font-size: 13px;
 }
 
-
-/* ============================================================
-   APPLICATION
-============================================================ */
-
-.application-section {
-
-    position: relative;
-
-    padding: 130px 0;
-
-    overflow: hidden;
-
-    background: #ffffff;
+.opening-meta span {
+    display: flex;
+    align-items: center;
+    gap: 9px;
 }
 
-
-.application-section .section-label {
-    color: var(--green);
+.opening-meta i {
+    color: var(--orange);
 }
 
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
 
-.application-bg-circle {
-
-    position: absolute;
-
-    width: 500px;
-    height: 500px;
-
-    right: -250px;
-    top: 80px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(16, 46, 39, 0.07);
-
-    filter: blur(80px);
-
-    pointer-events: none;
+.testimonials-section {
+    padding: 125px 0;
+    background: var(--green-soft);
 }
 
-
-.application-heading {
-
-    position: relative;
-
-    z-index: 1;
-
-    max-width: 780px;
-
+.testimonials-heading {
     margin-bottom: 60px;
 }
 
-
-.application-heading h2 {
-
-    margin: 20px 0 22px;
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-
-.application-heading p {
-
-    max-width: 720px;
-
-    margin: 0;
-
-    color: var(--muted);
-
-    font-size: 16px;
-
-    line-height: 1.8;
-}
-
-
-/* ============================================================
-   APPLICATION CARD
-============================================================ */
-
-.application-card {
-
+.testimonial-card {
     position: relative;
 
-    z-index: 1;
+    padding: 30px;
 
-    display: grid;
-
-    grid-template-columns:
-        0.78fr 1.22fr;
-
-    overflow: hidden;
-
+    background: var(--white);
     border: 1px solid var(--line);
-
-    background: var(--white);
-
-    box-shadow:
-        0 30px 90px rgba(16, 46, 39, 0.10);
-}
-
-
-/* ============================================================
-   APPLICATION INFO
-============================================================ */
-
-.application-info {
-
-    position: relative;
-
-    padding: 55px;
-
-    overflow: hidden;
-
-    background: var(--green);
-
-    color: var(--white);
-}
-
-
-.application-info::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 150px;
-    height: 150px;
-
-    right: -50px;
-    bottom: -50px;
-
-    border:
-        1px solid rgba(139, 185, 170, 0.20);
-
-    border-radius: 50%;
-}
-
-
-.application-info::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 290px;
-    height: 290px;
-
-    right: -135px;
-    bottom: -135px;
-
-    border:
-        1px solid rgba(139, 185, 170, 0.28);
-
-    border-radius: 50%;
-}
-
-
-.info-top {
-
-    position: relative;
-
-    z-index: 2;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding-bottom: 25px;
-
-    border-bottom:
-        1px solid rgba(255, 255, 255, 0.12);
-}
-
-
-.info-number {
-
-    color: #f5820b;
-
-    font-family: "JetBrains Mono", monospace;
-
-    font-size: 12px;
-}
-
-
-.info-label {
-
-    color:
-        rgba(255, 255, 255, 0.42);
-
-    font-family: "JetBrains Mono", monospace;
-
-    font-size: 9px;
-
-    letter-spacing: 0.16em;
-}
-
-
-.application-info h3 {
-
-    position: relative;
-
-    z-index: 2;
-
-    margin: 45px 0 22px;
-
-    font-size: 42px;
-
-    line-height: 1.05;
-
-    letter-spacing: -0.04em;
-}
-
-
-.application-info h3 strong {
-
-    display: block;
-
-    color: #f5820b;
-
-    font-weight: 600;
-}
-
-
-.info-description {
-
-    position: relative;
-
-    z-index: 2;
-
-    max-width: 440px;
-
-    margin: 0;
-
-    color:
-        rgba(255, 255, 255, 0.62);
-
-    font-size: 14px;
-
-    line-height: 1.8;
-}
-
-
-/* ============================================================
-   APPLICATION CONTACT
-============================================================ */
-
-.application-contact {
-
-    position: relative;
-
-    z-index: 3;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 25px;
-
-    margin-top: 55px;
-}
-
-
-.application-contact-item {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 15px;
-}
-
-
-.contact-icon {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex: 0 0 40px;
-
-    width: 40px;
-    height: 40px;
-
-    border:
-        1px solid rgba(139, 185, 170, 0.45);
-
-    color: #f5820b;
-
-    font-size: 14px;
-}
-
-
-.application-contact-item span {
-
-    display: block;
-
-    margin-bottom: 5px;
-
-    color:
-        rgba(255, 255, 255, 0.38);
-
-    font-family: "JetBrains Mono", monospace;
-
-    font-size: 9px;
-
-    letter-spacing: 0.12em;
-
-    text-transform: uppercase;
-}
-
-
-.application-contact-item a,
-.application-contact-item p {
-
-    margin: 0;
-
-    color:
-        rgba(255, 255, 255, 0.86);
-
-    font-size: 13px;
-
-    line-height: 1.6;
-
-    text-decoration: none;
-}
-
-
-.application-contact-item a:hover {
-    color: #f5820b;
-}
-
-
-.info-bottom-line {
-
-    position: relative;
-
-    z-index: 2;
-
-    margin-top: 50px;
-
-    padding-top: 20px;
-
-    border-top:
-        1px solid rgba(255, 255, 255, 0.10);
-
-    color:
-        rgba(255, 255, 255, 0.28);
-
-    font-family: "JetBrains Mono", monospace;
-
-    font-size: 8px;
-
-    letter-spacing: 0.15em;
-}
-
-
-/* ============================================================
-   CAREER FORM
-============================================================ */
-
-.career-form {
-
-    padding: 55px;
-
-    background: var(--white);
-}
-
-
-.form-header {
-
-    margin-bottom: 35px;
-
-    padding-bottom: 25px;
-
-    border-bottom:
-        1px solid var(--line);
-}
-
-
-.form-header>span {
-
-    color: var(--green);
-
-    font-family: "JetBrains Mono", monospace;
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.16em;
-}
-
-
-.form-header h3 {
-
-    margin: 12px 0 8px;
-
-    font-size: 29px;
-
-    letter-spacing: -0.03em;
-}
-
-
-.form-header p {
-
-    margin: 0;
-
-    color: var(--muted);
-
-    font-size: 13px;
-}
-
-
-/* ============================================================
-   FORM ROW
-============================================================ */
-
-.form-row {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 18px;
-}
-
-
-.form-field {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
-
-    margin-bottom: 20px;
-}
-
-
-.form-field label {
-
-    color: #202124;
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-
-.form-field label em {
-
-    color: var(--green);
-
-    font-style: normal;
-}
-
-
-/* ============================================================
-   INPUTS
-============================================================ */
-
-.input-wrapper {
-    position: relative;
-}
-
-
-.input-icon {
-
-    position: absolute;
-
-    left: 17px;
-    top: 50%;
-
-    z-index: 2;
-
-    color: #87928c;
-
-    font-size: 12px;
-
-    transform: translateY(-50%);
-
-    pointer-events: none;
-}
-
-
-.form-field input,
-.form-field select,
-.form-field textarea {
-
-    width: 100%;
-
-    border:
-        1px solid #dce4df;
-
-    outline: none;
-
-    background: #f8fbf9;
-
-    color: var(--ink);
-
-    font-family: "Inter", sans-serif;
-
-    font-size: 13px;
-
-    transition:
-        border-color 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-
-.form-field input,
-.form-field select {
-
-    height: 54px;
-
-    padding:
-        0 16px 0 45px;
-}
-
-
-.form-field textarea {
-
-    min-height: 125px;
-
-    padding:
-        16px 16px 16px 45px;
-
-    resize: vertical;
-
-    line-height: 1.6;
-}
-
-
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-    color: #9aa39f;
-}
-
-
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus {
-
-    border-color: var(--green);
-
-    background: var(--white);
-
-    box-shadow:
-        0 0 0 3px rgba(16, 46, 39, 0.09);
-}
-
-
-.textarea-icon {
-
-    top: 20px;
-
-    transform: none;
-}
-
-
-/* ============================================================
-   RESUME
-============================================================ */
-
-.resume-upload {
-    position: relative;
-}
-
-
-.resume-upload>input {
-
-    position: absolute;
-
-    width: 1px;
-    height: 1px;
-
-    opacity: 0;
-}
-
-
-.resume-label {
-
-    display: flex !important;
-
-    align-items: center;
-
-    gap: 15px;
-
-    min-height: 82px;
-
-    padding: 15px 18px;
-
-    border:
-        1px dashed #cbd8d1;
-
-    background: #f8fbf9;
-
-    cursor: pointer;
-
-    transition:
-        border-color 0.25s ease,
-        background 0.25s ease;
-}
-
-
-.resume-label:hover {
-
-    border-color: var(--green);
-
-    background:
-        rgba(16, 46, 39, 0.035);
-}
-
-
-.upload-icon {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex: 0 0 48px;
-
-    width: 48px;
-    height: 48px;
-
-    background:
-        rgba(16, 46, 39, 0.10);
-
-    color: var(--green);
-
-    font-size: 20px;
-}
-
-
-.upload-content {
-
-    display: flex;
-
-    flex: 1;
-
-    flex-direction: column;
-
-    gap: 5px;
-}
-
-
-.upload-content strong {
-
-    color: var(--ink);
-
-    font-size: 13px;
-}
-
-
-.upload-content span {
-
-    color: #888;
-
-    font-size: 11px;
-}
-
-
-.browse-btn {
-
-    padding: 9px 14px;
-
-    border:
-        1px solid #d6dfda;
-
-    background: var(--white);
-
-    color: var(--ink);
-
-    font-size: 11px;
-
-    font-weight: 700;
-}
-
-
-.resume-label:hover .browse-btn {
-
-    border-color: var(--green);
-
-    color: var(--green);
-}
-
-
-/* ============================================================
-   CONSENT
-============================================================ */
-
-.form-consent {
-
-    margin-top: 3px;
-
-    margin-bottom: 25px;
-}
-
-
-.form-consent label {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 10px;
-
-    cursor: pointer;
-}
-
-
-.form-consent input {
-
-    width: 16px;
-    height: 16px;
-
-    margin-top: 2px;
-
-    accent-color: var(--green);
-}
-
-
-.form-consent span {
-
-    color: #777;
-
-    font-size: 11px;
-
-    line-height: 1.6;
-}
-
-
-/* ============================================================
-   SUBMIT
-============================================================ */
-
-.application-submit {
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    width: 100%;
-
-    min-height: 58px;
-
-    padding: 0 22px;
-
-    overflow: hidden;
-
-    border: 0;
-
-    background: var(--green);
-
-    color: var(--white);
-
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    cursor: pointer;
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
 
+.testimonial-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 22px 45px rgba(7, 28, 24, 0.1);
+}
 
-.application-submit::before {
+.testimonial-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-    content: "";
+.testimonial-image {
+    width: 62px;
+    height: 62px;
 
-    position: absolute;
+    overflow: hidden;
 
-    inset: 0;
+    border-radius: 50%;
 
-    background: var(--green-dark);
+    background: var(--green-light);
+}
 
-    transform: translateX(-100%);
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.testimonial-top h3 {
+    margin: 0 0 4px;
+
+    color: var(--green-dark);
+
+    font-size: 17px;
+}
+
+.testimonial-top span {
+    color: var(--muted);
+
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.quote-icon {
+    margin-top: 28px;
+
+    color: var(--orange);
+
+    font-size: 38px;
+    line-height: 1;
+}
+
+.testimonial-card p {
+    margin: 8px 0 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   APPLICATION
+========================================================= */
+
+.application-section {
+    padding: 125px 0;
+
+    background:
+        radial-gradient(circle at 85% 20%,
+            rgba(248, 140, 24, 0.12),
+            transparent 30%),
+        var(--green-deep);
+}
+
+.application-card {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 80px;
+
+    padding: 70px;
+
+    background: var(--white);
+}
+
+.application-copy h2 {
+    font-size: clamp(44px, 5vw, 68px);
+}
+
+.application-copy h2 em {
+    color: var(--orange);
+}
+
+.application-copy>p {
+    max-width: 470px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.application-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+
+    max-width: 470px;
+
+    margin-top: 35px;
+    padding-top: 25px;
+
+    border-top: 1px solid var(--line);
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.application-note i {
+    flex-shrink: 0;
+
+    color: var(--orange);
+
+    font-size: 20px;
+}
+
+.career-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: var(--green-dark);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    border: 1px solid var(--line);
+
+    background: #fbfcfb;
+    color: var(--ink);
+
+    padding: 14px 15px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 14px;
 
     transition:
-        transform 0.35s ease;
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
 
-.application-submit span,
-.application-submit strong {
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--orange);
 
+    box-shadow: 0 0 0 3px rgba(248, 140, 24, 0.1);
+}
+
+.resume-input {
     position: relative;
 
-    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    min-height: 76px;
+
+    padding: 15px;
+
+    border: 1px dashed #cbd7d2;
+
+    background: #fbfcfb;
+
+    cursor: pointer;
 }
 
+.resume-input input {
+    position: absolute;
+    inset: 0;
 
-.application-submit strong {
+    width: 100%;
+    height: 100%;
 
+    opacity: 0;
+
+    cursor: pointer;
+}
+
+.resume-input>i {
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    width: 34px;
-    height: 34px;
+    width: 42px;
+    height: 42px;
 
-    border:
-        1px solid rgba(255, 255, 255, 0.40);
+    background: var(--green-light);
+    color: var(--green);
+
+    font-size: 20px;
 }
 
+.resume-input span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 
-.application-submit:hover::before {
-    transform: translateX(0);
+    color: var(--green-dark);
+
+    font-size: 13px;
+    font-weight: 700;
 }
 
+.resume-input small {
+    color: var(--muted);
 
-.application-submit:hover {
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 12px 30px rgba(16, 46, 39, 0.18);
+    font-size: 11px;
+    font-weight: 400;
 }
 
+.career-submit {
+    width: fit-content;
+    margin-top: 4px;
+}
 
-/* ============================================================
-   TABLET
-============================================================ */
+/* =========================================================
+   RESPONSIVE - 1100
+========================================================= */
 
 @media (max-width: 1100px) {
-
     .benefits-grid {
-
-        grid-template-columns:
-            repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .testimonial-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
+    .core-values-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
-
-    .testimonial-card:last-child {
-
-        grid-column: span 2;
-    }
-}
-
-
-/* ============================================================
-   950px
-============================================================ */
-
-@media (max-width: 950px) {
-
-    .careers-container {
-
-        width:
-            min(calc(100% - 36px),
-                760px);
-    }
-
-
-    .careers-hero {
-        min-height: 700px;
-    }
-
-
-    .hero-side-card {
-        display: none;
-    }
-
-
-    .life-gallery {
-
-        grid-template-columns:
-            1fr 1fr;
-
-        grid-template-rows:
-            280px 220px 220px 220px;
-    }
-
-
-    .life-large {
-
-        grid-row: span 1;
-
-        grid-column: span 2;
-    }
-
-
-    .life-wide {
-        grid-column: span 2;
-    }
-
-
-    .benefits-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
 
     .opening-card {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr auto;
     }
 
+    .opening-meta {
+        grid-column: 1;
+        flex-direction: row;
+    }
+
+    .opening-btn {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
 
     .application-card {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .application-info {
-        padding: 50px;
-    }
-
-
-    .career-form {
+        gap: 50px;
         padding: 50px;
     }
 }
 
+/* =========================================================
+   RESPONSIVE - 950
+========================================================= */
 
-/* ============================================================
-   700px
-============================================================ */
-
-@media (max-width: 700px) {
-
-    .testimonial-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .testimonial-card:last-child {
-        grid-column: span 1;
-    }
-
-
-    .testimonial-card {
-        min-height: auto;
-    }
-
-
-    .opening-left,
-    .opening-right {
-        padding: 38px;
-    }
-
-
-    .opening-left h3 {
-        font-size: 34px;
-    }
-}
-
-
-/* ============================================================
-   MOBILE
-============================================================ */
-
-@media (max-width: 600px) {
-
-    .careers-container {
-        width: calc(100% - 28px);
-    }
-
-
+@media (max-width: 950px) {
     .careers-hero {
-        min-height: 720px;
+        min-height: 650px;
     }
-
-
-    .hero-content h1 {
-        font-size: 50px;
-    }
-
-
-    .hero-description {
-
-        font-size: 15px;
-
-        line-height: 1.7;
-    }
-
-
-    .hero-description.secondary {
-        font-size: 13px;
-    }
-
-
-    .hero-actions {
-
-        align-items: stretch;
-
-        flex-direction: column;
-    }
-
-
-    .primary-btn,
-    .secondary-btn {
-        width: 100%;
-    }
-
 
     .life-section,
+    .core-values-section,
+    .career-video-section,
     .benefits-section,
     .openings-section,
     .testimonials-section,
     .application-section {
-
-        padding: 85px 0;
+        padding: 95px 0;
     }
-
-
-    .section-heading {
-        margin-bottom: 45px;
-    }
-
-
-    .section-heading h2,
-    .openings-header h2,
-    .application-heading h2 {
-        font-size: 43px;
-    }
-
 
     .life-gallery {
-
-        display: grid;
-
-        grid-template-columns:
-            1fr;
-
-        grid-template-rows:
-            repeat(6, 250px);
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 240px;
     }
 
-
-    .life-large,
-    .life-wide {
-
-        grid-column: span 1;
-
+    .gallery-item.gallery-large {
         grid-row: span 1;
     }
 
+    .gallery-item.gallery-wide {
+        grid-column: span 2;
+    }
 
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .application-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 700
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .section-wrap,
+    .hero-content {
+        width: min(100% - 32px, 1180px);
+    }
+
+    .careers-hero {
+        min-height: 620px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(48px, 14vw, 70px);
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    .life-section,
+    .core-values-section,
+    .career-video-section,
+    .benefits-section,
+    .openings-section,
+    .testimonials-section,
+    .application-section {
+        padding: 75px 0;
+    }
+
+    .section-heading h2,
+    .core-values-intro h2,
+    .career-video-heading h2,
+    .application-copy h2 {
+        font-size: clamp(40px, 12vw, 58px);
+    }
+
+    .life-gallery {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 240px;
+        margin-top: 45px;
+    }
+
+    .gallery-item.gallery-wide {
+        grid-column: span 1;
+    }
+
+    .core-values-grid {
+        grid-template-columns: 1fr;
+        margin-top: 45px;
+    }
+
+    .core-value-image {
+        height: 260px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .opening-card {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .opening-meta {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .opening-btn {
+        width: 100%;
+    }
+
+    .application-card {
+        padding: 32px 24px;
+        gap: 45px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - 600
+========================================================= */
+
+@media (max-width: 600px) {
     .benefits-grid {
         grid-template-columns: 1fr;
     }
 
-
     .benefit-card {
-
         min-height: auto;
-
-        padding: 28px;
     }
 
-
-    .benefit-card h3 {
-        margin-top: 45px;
+    .core-value-content {
+        padding: 24px;
     }
 
-
-    .openings-header {
-
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 20px;
-    }
-
-
-    .opening-left,
-    .opening-right {
-        padding: 30px;
-    }
-
-
-    .opening-title-row {
-        gap: 14px;
-    }
-
-
-    .opening-icon {
-
-        flex-basis: 42px;
-
-        width: 42px;
-        height: 42px;
-    }
-
-
-    .opening-left h3 {
-        font-size: 30px;
-    }
-
-
-    .testimonial-card {
-        padding: 30px;
-    }
-
-
-    .testimonial-card h3 {
-        font-size: 22px;
-    }
-
-
-    .application-heading {
-        margin-bottom: 40px;
-    }
-
-
-    .application-info {
-        padding: 30px;
-    }
-
-
-    .application-info h3 {
-        font-size: 34px;
-    }
-
-
-    .application-contact {
-        margin-top: 40px;
-    }
-
-
-    .career-form {
-        padding: 28px 22px;
-    }
-
-
-    .form-row {
-        grid-template-columns: 1fr;
-
-        gap: 0;
-    }
-
-
-    .resume-label {
-        align-items: flex-start;
-    }
-
-
-    .browse-btn {
-        display: none;
-    }
-
-
-    .info-bottom-line {
-        font-size: 7px;
+    .career-video video {
+        min-height: 260px;
+        object-fit: cover;
     }
 }
 
-
-/* ============================================================
-   SMALL MOBILE
-============================================================ */
+/* =========================================================
+   RESPONSIVE - 400
+========================================================= */
 
 @media (max-width: 400px) {
 
+    .section-wrap,
+    .hero-content {
+        width: calc(100% - 28px);
+    }
+
+    .careers-hero {
+        min-height: 570px;
+    }
+
     .hero-content h1 {
-        font-size: 43px;
+        font-size: 46px;
     }
 
-
-    .section-heading h2,
-    .openings-header h2,
-    .application-heading h2 {
-        font-size: 38px;
+    .hero-content p {
+        font-size: 15px;
     }
 
-
-    .application-info h3 {
-        font-size: 30px;
+    .hero-btn,
+    .career-submit {
+        width: 100%;
     }
 
+    .application-card {
+        padding: 28px 18px;
+    }
 
-    .opening-left h3 {
-        font-size: 27px;
+    .testimonial-card {
+        padding: 24px;
+    }
+
+    .core-value-image {
+        height: 220px;
     }
 }
 </style>

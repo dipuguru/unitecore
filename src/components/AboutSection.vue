@@ -10,7 +10,8 @@
                 <h2>Technology works<br>better when it <em>connects.</em></h2>
                 <p>UniteCore brings infrastructure, data, security, analytics and consulting together to help
                     organizations create resilient, connected and future-ready technology environments.</p><router-link
-                    to="/about" class="about-link">Discover UniteCore <i class="bi bi-arrow-up-right"></i></router-link>
+                    to="/about" class="about-link">Discover UniteCore
+                </router-link>
             </div>
         </div>
     </section>

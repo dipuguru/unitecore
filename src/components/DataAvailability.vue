@@ -158,31 +158,31 @@
           <div class="service-item">
             <span>01</span>
             <strong>Data Integration</strong>
-            <i class="bi bi-arrow-up-right"></i>
+
           </div>
 
           <div class="service-item">
             <span>02</span>
             <strong>Data Transformation</strong>
-            <i class="bi bi-arrow-up-right"></i>
+
           </div>
 
           <div class="service-item">
             <span>03</span>
             <strong>Data Quality Management</strong>
-            <i class="bi bi-arrow-up-right"></i>
+
           </div>
 
           <div class="service-item">
             <span>04</span>
             <strong>Data Governance</strong>
-            <i class="bi bi-arrow-up-right"></i>
+
           </div>
 
           <div class="service-item">
             <span>05</span>
             <strong>Data Warehousing & Data Lake Solutions</strong>
-            <i class="bi bi-arrow-up-right"></i>
+
           </div>
 
         </div>

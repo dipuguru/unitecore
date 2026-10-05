@@ -6,8 +6,7 @@
             <div class="kicker">LET'S BUILD WHAT'S NEXT</div>
             <h2>One challenge.<br><em>One connected answer.</em></h2>
             <p>Tell us what you are trying to solve. UniteCore can help you find a practical technology path forward.
-            </p><router-link to="/contact" class="cta-btn">Start a conversation <i
-                    class="bi bi-arrow-up-right"></i></router-link>
+            </p><router-link to="/contact" class="cta-btn">Start a conversation </router-link>
         </div>
     </section>
 </template>

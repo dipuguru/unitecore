@@ -24,7 +24,7 @@
 
         <router-link to="/services" class="text-link">
           Explore our capabilities
-          <i class="bi bi-arrow-up-right"></i>
+
         </router-link>
 
       </div>
@@ -49,7 +49,7 @@
             </p>
           </div>
 
-          <i class="bi bi-arrow-up-right solution-arrow"></i>
+
 
         </div>
 
@@ -70,7 +70,7 @@
             </p>
           </div>
 
-          <i class="bi bi-arrow-up-right solution-arrow"></i>
+
 
         </div>
 
@@ -91,7 +91,7 @@
             </p>
           </div>
 
-          <i class="bi bi-arrow-up-right solution-arrow"></i>
+
 
         </div>
 
@@ -112,7 +112,7 @@
             </p>
           </div>
 
-          <i class="bi bi-arrow-up-right solution-arrow"></i>
+
 
         </div>
 

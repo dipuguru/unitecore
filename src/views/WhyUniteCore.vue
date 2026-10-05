@@ -1011,7 +1011,7 @@
 
                     <router-link to="/contact-us" class="cta-button">
                         <span>Talk to an Expert</span>
-                        <i class="bi bi-arrow-up-right"></i>
+
                     </router-link>
 
                 </div>

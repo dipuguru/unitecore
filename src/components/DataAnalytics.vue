@@ -261,25 +261,25 @@
                     <div class="service">
                         <span>01</span>
                         <strong>Descriptive Analysis</strong>
-                        <i class="bi bi-arrow-up-right"></i>
+
                     </div>
 
                     <div class="service">
                         <span>02</span>
                         <strong>Diagnostic Analytics</strong>
-                        <i class="bi bi-arrow-up-right"></i>
+
                     </div>
 
                     <div class="service">
                         <span>03</span>
                         <strong>Predictive Analytics</strong>
-                        <i class="bi bi-arrow-up-right"></i>
+
                     </div>
 
                     <div class="service">
                         <span>04</span>
                         <strong>Prescriptive Analytics</strong>
-                        <i class="bi bi-arrow-up-right"></i>
+
                     </div>
 
                 </div>

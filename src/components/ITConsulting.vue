@@ -6,7 +6,7 @@
                 <h2>From technology<br><em>to transformation.</em></h2>
                 <p>Advice is only useful when it can be implemented. UniteCore combines strategy, architecture and
                     hands-on delivery across complex environments.</p><router-link to="/solutions" class="button">View
-                    consulting services <i class="bi bi-arrow-up-right"></i></router-link>
+                    consulting services </router-link>
             </div>
             <div class="roadmap">
                 <div v-for="(x, i) in areas" :key="x.name" class="road-item"><span>0{{ i + 1 }}</span>
